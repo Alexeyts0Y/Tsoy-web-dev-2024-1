@@ -1,0 +1,31 @@
+body {
+    margin: 0;
+}
+
+header, footer {
+    background-color: black;
+    color: white;
+    margin: 0;
+    padding: 20px 0;
+}
+
+
+
+.navigation ul{
+    margin: 0;
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    flex-direction: row;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+.text {
+    max-width: 75%;
+    text-align: justify;
+    margin: 0 auto;
+}
