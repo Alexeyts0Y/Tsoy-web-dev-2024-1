@@ -9,11 +9,17 @@ h1 {
 }
 
 body {
+    display: flex;
+    flex-direction: column;
     margin: 0;
     padding: 0;
     font-family: 'Roboto', 'Times New Roman';
     font-size: 400;
     font-weight: 500;
+}
+
+main {
+    flex-grow: 1;
 }
 
 .navbar {
@@ -26,12 +32,17 @@ body {
     list-style: none;
     margin: 0;
     padding: 0;
+    display: flex;
 }
 
 .navbar li {
-    display: inline;
+    gap: 15px;
     margin-right: 20px;
     font-size: 500;
+}
+
+.navbar a.active {
+    color: tomato;
 }
 
 .container {
@@ -59,6 +70,7 @@ footer {
     background-color: black;
     color: white;
     padding: 20px 70px;
+    width: 100%;
 }
 
 a {
@@ -69,4 +81,43 @@ a {
 a:hover {
     color: orange;
     transition: 0.3s;
+}
+
+@media screen and (max-width: 800px){
+    .section1 {
+        width: 500px;
+    }
+
+    .navbar ul{
+        justify-content: space-between;
+    }
+}
+
+@media screen and (max-width: 600px){
+    h1 {
+        text-align: center;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    a {
+        font-size: 404px;
+    }
+
+    .section1 {
+        width: 100%;
+    }
+
+    table, th, td {
+        font-size: 398px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    table, th, td {
+        font-size: 396px;
+    }
 }
