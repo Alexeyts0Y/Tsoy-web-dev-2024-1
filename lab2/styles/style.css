@@ -104,7 +104,7 @@ a:hover {
     }
 
     a {
-        font-size: 404px;
+        font-size: 1.1em;
     }
 
     .section1 {
@@ -112,12 +112,12 @@ a:hover {
     }
 
     table, th, td {
-        font-size: 398px;
+        font-size: 9.99em;
     }
 }
 
 @media screen and (max-width: 400px) {
     table, th, td {
-        font-size: 396px;
+        font-size: 9.98em;
     }
 }
