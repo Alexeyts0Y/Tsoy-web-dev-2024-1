@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=SUSE:wght@100..800&display=swap');
 
 * {
-    box-sizing: border-box
+    box-sizing: border-box;
 }
 
 h1 {
@@ -33,13 +33,15 @@ main {
     margin: 0;
     padding: 0;
     display: flex;
+    gap: 15px;
 }
 
 .navbar li {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 15px;
-    margin-right: 20px;
+    margin: 0;
+    padding: 0;
     font-size: 500;
 }
 
@@ -68,87 +70,56 @@ a:active {
 }
 
 .dishes {
-    display: grid;
-    grid-template-rows: 40px 1fr 40px 1fr 40px 1fr;
-    row-gap: 20px;
-}
-
-.dish_card  {
     display: flex;
     flex-direction: column;
-    width: 350px;
+}
+
+.dishes > h2 {
+    align-self: flex-start;
+}
+
+.dish-block {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 350px 350px 350px;
+    grid-template-rows: auto;
+    gap: 30px;
+}
+
+.dish-card  {
+    display: flex;
+    flex-direction: column;
     height: 1fr;
     border-radius: 35px;
+    border: 2px solid white;
     background-color: white;
     padding: 30px 40px;
     align-items: stretch;
+    filter: drop-shadow(17px 19px 24px rgba(0, 0, 0, 0.13));
 }
 
-.dish_card > * {
+.dish-card > * {
     width: 100%;
 }
 
-.dish_card:hover {
+.dish-card:hover {
     border: 2px solid tomato;
 }
 
-.dish_card:hover button{
+.dish-card:hover button{
     background-color: grey;
 }
 
 .dish_img {
     margin: 0;
-    padding: 0;
-}
+    padding: 0;}
 
 .dish_img img{
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 35px;
-}
-
-.grid_item1 {
-    grid-row-start: 2;
-    grid-row-end: 3;
-    display: flex;
-    filter: drop-shadow(17px 19px 24px rgba(0, 0, 0, 0.13));
-    gap: 10px;
-}
-
-.grid_item2 {
-    grid-row-start: 4;
-    grid-row-end: 5;
-    display: flex;
-    filter: drop-shadow(17px 19px 24px rgba(0, 0, 0, 0.13));
-    gap: 10px;
-    align-content: last baseline;
-}
-
-.grid_item3 {
-    grid-row-start: 6;
-    grid-row-end: end;
-    display: flex;
-    filter: drop-shadow(17px 19px 24px rgba(0, 0, 0, 0.13));
-    gap: 10px;
-}
-
-.label1 {
-    grid-row-start: 1;
-    grid-row-end: 2;
-    align-self: center;
-}
-
-.label2 {
-    grid-row-start: 3;
-    grid-row-end: 4;
-    align-self: center;
-}
-
-.label3 {
-    grid-row-start: 5;
-    grid-row-end: 6;
-    align-self: center;
 }
 
 button {
@@ -168,10 +139,6 @@ button {
     font-size: larger;
 }
 
-.button_and_weight {
-    margin-top: auto;
-}
-
 .price {
     margin-bottom: 0;
     font-size: larger;
@@ -189,7 +156,15 @@ section {
 @media screen and (max-width: 800px) {
     .navbar ul {
         justify-content: space-between;
-    }  
+    }
+
+    .dish-block {
+        display: grid;
+        padding: 0;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        gap: 30px;
+    }
 }
 
 @media screen and (max-width: 600px) {
@@ -199,22 +174,27 @@ section {
 
     .navbar ul {
         flex-direction: column;
-        justify-content: center;
+        text-align: center;
     }
 
     a {
         font-size: 1.01em;
     }
 
-    .label1 {
-        justify-self: center;
+    .dishes {
+        display: flex;
+        flex-direction: column;
     }
 
-    .label2 {
-        justify-self: center;
+    .dish-block {
+        display: grid;
+        padding: 0;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 30px;
     }
 
-    .label3 {
-        justify-self: center;
+    .dishes > h2 {
+        align-self: center;
     }
 }
