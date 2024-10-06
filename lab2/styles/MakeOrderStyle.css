@@ -49,13 +49,6 @@ main {
     margin: 0 70px;
 }
 
-footer {
-    background-color: black;
-    color: white;
-    padding: 20px 70px;
-    width: 100%;
-}
-
 a {
     text-decoration: none;
     color: black;
@@ -153,6 +146,99 @@ section {
     margin-bottom: 20px;
 }
 
+.make-order h2{
+    margin-left: 350px;
+    width: 100%;
+    /* text-align: center; */
+}
+
+form {
+    display: flex;
+    gap: 150px;
+    /* justify-content: space-around; */
+}
+
+form p {
+    margin: 0;
+    font-size: smaller;
+    font-style: italic;
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+form > div > div {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+}
+
+fieldset {
+    border: none;
+    margin: auto 0;
+    padding: 5px 0;
+}
+
+fieldset div {
+    flex-direction: row;
+    margin: 5px 0;
+}
+
+.orderPart, .userDataPart {
+    width: 400px;
+}
+
+.broadcastDiv {
+    flex-direction: row;
+}
+
+select {
+    max-width: 250px;
+    height: 30px;
+}
+
+input {
+    max-width: 250px;
+}
+
+textarea {
+    max-width: 250px;
+    height: 90px;
+}
+
+.buttons {
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.buttons button {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 0;
+    width: 120px;
+    text-align: center;
+    padding: 5px 0;
+}
+
+.makeOrderForm {
+    margin: 10px 200px;
+}
+
+input[type="checkbox"], input[type="radio"] {
+    margin: 0 3px 0 0;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    padding: 20px 70px;
+    width: 100%;
+}
+
 @media screen and (max-width: 800px) {
     .navbar ul {
         justify-content: space-between;
@@ -164,6 +250,21 @@ section {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto;
         gap: 30px;
+    }
+
+    .makeOrderForm {
+        margin: 10px 70px;
+    }
+
+    form {
+        gap: 0;
+        justify-content: space-around;
+    }
+
+    .make-order h2{
+        margin: 0;
+        width: 100%;
+        text-align: center;
     }
 }
 
@@ -196,5 +297,14 @@ section {
 
     .dishes > h2 {
         align-self: center;
+    }
+
+    form {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .make-order h2{
+        text-align: center;
     }
 }
