@@ -14,8 +14,8 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Roboto', 'Times New Roman';
-    font-size: 400;
     font-weight: 500;
+    width: 100fr;
 }
 
 main {
@@ -148,14 +148,13 @@ section {
 
 .make-order h2{
     margin-left: 350px;
-    width: 100%;
-    /* text-align: center; */
+    padding: 5px 20px;
+    width: 50%;
 }
 
 form {
     display: flex;
     gap: 150px;
-    /* justify-content: space-around; */
 }
 
 form p {
@@ -224,8 +223,8 @@ textarea {
     padding: 5px 0;
 }
 
-.makeOrderForm {
-    margin: 10px 200px;
+.make-order {
+    margin: 10px 120px;
 }
 
 input[type="checkbox"], input[type="radio"] {
