@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Food Construct</title>
+        <link rel="stylesheet" href="../styles/MakeOrderStyle.css" />
+    </head>
+    <script type="module" defer src="../scripts.js"></script>
+    <body>
+        <header>
+            <h1>Food Construct</h1>
+
+            <div class="navbar">
+                <nav>
+                    <ul>
+                        <li><a href="../pages/index.html">О нас</a></li>
+                        <li><a href="#benefits">Собрать ланч</a></li>
+                        <li><a href="#dishes">Заказы</a></li>
+                        <li><a href="#contact">Контакты</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <div class="container">
+                <section>
+                    <div class="dishes" id="dishes">
+
+                        <h2 class="label1">Выберите суп</h2>
+
+                        <div class="dish-block" id="soupes">
+                            <div class="dish-card" data-dish="gazpacho">
+                                <figure class="dish_img">
+                                    <img
+                                        src=""
+                                        alt=""
+                                    />
+                                </figure>
+                                <p class="price"></p>
+                                <p class="dish_name"></p>
+                                <div class="button_and">
+                                    <p class="weight"></p>
+                                    <button>Добавить</button>
+                                </div>
+                            </div>
+    
+                            <div class="dish-card" data-dish="mushroomSoup">
+                                <figure class="dish_img">
+                                    <img
+                                        src=""
+                                        alt=""
+                                    />
+                                </figure>
+                                <p class="price"></p>
+                                <p class="dish_name"></p>
+                                <div class="button_and">
+                                    <p class="weight"></p>
+                                    <button>Добавить</button>
+                                </div>
+                            </div>
+    
+                            <div class="dish-card" data-dish="norwegianSoup">
+                                <figure class="dish_img">
+                                    <img
+                                        src=""
+                                        alt=""
+                                    />
+                                </figure>
+                                <p class="price"></p>
+                                <p class="dish_name"></p>
+                                <div class="button_and">
+                                    <p class="weight"></p>
+                                    <button>Добавить</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2 class="label2">Выберите главное блюдо</h2>
+
+                        <div class="dish-block" id="main">
+                            <div class="dish-card" data-dish="friedPotatoesWithMushrooms">
+                                <figure class="dish_img">
+                                    <img
+                                        src=""
+                                        alt=""
+                                    />
+                                </figure>
+                                <p class="price"></p>
+                                <p class="dish_name"></p>
+                                <div class="button_and">
+                                    <p class="weight"></p>
+                                    <button>Добавить</button>
+                                </div>
+                            </div>
+    
+                            <div class="dish-card" data-dish="lasagna">
+                                <figure class="dish_img">
+                                    <img
+                                        src=""
+                                        alt=""
+                                    />
+                                </figure>
+                                <p class="price"></p>
+                                <p class="dish_name"></p>
+                                <div class="button_and">
+                                    <p class="weight"></p>
+                                    <button>Добавить</button>
+                                </div>
+                            </div>
+    
+                            <div class="dish-card" data-dish="chickenCutletsAndMashedPotatoes">
+                                <figure class="dish_img">
+                                    <img
+                                        src=""
+                                        alt=""
+                                    />
+                                </figure>
+                                <p class="price"></p>
+                                <p class="dish_name">
+                                    
+                                </p>
+                                <div class="button_and">
+                                    <p class="weight"></p>
+                                    <button>Добавить</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2 class="label3">Выберите напиток</h2>
+
+                        <div class="dish-block" id="drinks">
+
+                            <div class="dish-card" data-dish="orangeJuice">
+                                <figure class="dish_img">
+                                    <img
+                                        src=""
+                                        alt=""
+                                    />
+                                </figure>
+                                <p class="price"></p>
+                                <p class="dish_name"></p>
+                                <div class="button_and">
+                                    <p class="weight"></p>
+                                    <button>Добавить</button>
+                                </div>
+                            </div>
+    
+                            <div class="dish-card" data-dish="appleJuice">
+                                <figure class="dish_img">
+                                    <img
+                                        src=""
+                                        alt=""
+                                    />
+                                </figure>
+                                <p class="price"></p>
+                                <p class="dish_name"></p>
+                                <div class="button_and">
+                                    <p class="weight"></p>
+                                    <button>Добавить</button>
+                                </div>
+                            </div>
+    
+                            <div class="dish-card" data-dish="carrotJuice">
+                                <figure class="dish_img">
+                                    <img
+                                        src=""
+                                        alt=""
+                                    />
+                                </figure>
+                                <p class="price"></p>
+                                <p class="dish_name"></p>
+                                <div class="button_and">
+                                    <p class="weight"></p>
+                                    <button>Добавить</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="make-order">
+                            <h2>Сделать заказ</h2>
+                            <form action="https://httpbin.org/post" method="POST">
+                                <div class="orderPart">
+                                    <h3>Ваш заказ</h3>
+                                    <h3 class="nothingChosenLabel">Ничего не выбрано</h3>
+                                    <div class="chosenDishes" id="chosenDishes">
+                                        <div>
+                                            <label for="soupChoice">Суп</label>
+                                            <input type="text" name="soupChoice" id="soupChoice" value="Блюдо не выбрано" readonly required>
+                                        </div>
+                                        
+                                        <div>
+                                            <label for="mainDishChoice">Главное блюдо</label>
+                                            <input type="text" name="mainDishChoice" id="mainDishChoice" value="Блюдо не выбрано" readonly required>
+                                        </div>
+                                        
+                                        <div>
+                                            <label for="drinkChoice">Напиток</label>
+                                            <input type="text" name="drinkChoice" id="drinkChoice" value="Напиток не выбран" readonly required>
+                                        </div>
+
+                                        <div>
+                                            <h3>Стоимость заказа</h3>
+                                            <h3 class="fullPrice"></h3>
+                                        </div>
+                                    </div>
+            
+                                    <div>
+                                        <label for="commentForOrder">Комментарии к заказу</label>
+                                        <textarea name="commentForOrder" id="commentForOrder"></textarea>
+                                    </div>
+                                </div>
+            
+                                <div class="userDataPart">
+                                    <h3>Ваши данные</h3>
+                                    <div>
+                                        <label for="userName">Имя</label>
+                                        <input type="text" name="userName" id="userName" required>
+                                    </div>
+                                    
+                                    <div>
+                                        <label for="userEmail">Email</label>
+                                        <input type="email" name="userEmail" id="userEmail" required>
+                                    </div>
+            
+                                    <div class="broadcastDiv">
+                                        <input type="checkbox" name="isGetBroadcasting" id="isGetBroadcasting" value="true" checked>
+                                        <label for="isGetBroadcasting">Получать информацию о скидках и акциях</label>
+                                    </div>
+            
+                                    <div>
+                                        <label for="userPhoneNumber">Номер телефона</label>
+                                        <input type="tel" name="userPhoneNumber" id="userPhoneNumber" required>
+                                    </div>
+            
+                                    <div>
+                                        <label for="">Адрес доставки</label>
+                                        <input type="text" name="" id="" required>
+                                        <p>Доставка осуществляется только по Москве</p>
+                                    </div>
+            
+                                    <div>
+                                        <fieldset>
+                                            <legend>Время доставки</legend>
+                                            <div>
+                                                <input type="radio" name="deliverySpeed" id="fast" value="1" required>
+                                                <label for="fast">Как можно скорее</label>
+                                            </div>
+                                            
+                                            <div>
+                                                <input type="radio" name="deliverySpeed" id="inTime" value="2" required>
+                                                <label for="inTime">К указанному времени</label>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+            
+                                    <div>
+                                        <label for="deliveryTime">Укажите время доставки</label>
+                                        <input type="time" name="deliveryTime" id="deliveryTime" min="7:00" max="23:00" step="300">
+                                        <p>Доступное время доставки с 7:00 до 23:00</p>
+                                    </div>
+            
+                                    <div class="buttons">
+                                        <div>
+                                            <button type="reset">Сбросить</button>
+                                        </div>
+            
+                                        <div>
+                                            <button type="submit">Отправить</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- <div class="makeOrderForm">
+            
+        </div> -->
+
+        <footer>
+            <p>Позвонить нам +7-000-000-00-00</p>
+        </footer>
+    </body>
+</html>

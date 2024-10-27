@@ -231,6 +231,36 @@ input[type="checkbox"], input[type="radio"] {
     margin: 0 3px 0 0;
 }
 
+input[type="text"]:focus {
+    outline: none;
+}
+
+.chosenDishes {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.chosenDishes input {
+    background: white;
+    color: black;
+    border: none;
+    padding: 0;
+    font-size: 16px;
+}
+
+.chosenDishes > div {
+    gap: 5px;
+}
+
+.chosenDishes h3 {
+    margin: 0;
+}
+
+.fullPrice {
+    font-weight: 400
+}
+
 footer {
     background-color: black;
     color: white;
