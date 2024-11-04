@@ -1,4 +1,4 @@
-import { dishes } from "./db.js"
+import { dishes } from "./db.js";
 
 let selectedSoup;
 let selectedMain;
@@ -23,98 +23,114 @@ dishCards.forEach(dishCard => {
     }
 });
 
-const dishSoupCards = document.getElementById("soupes")
-const dishMainCards = document.getElementById("main")
-const dishDrinksCards = document.getElementById("drinks")
+const dishSoupCards = document.getElementById("soupes");
+const dishMainCards = document.getElementById("main");
+const dishDrinksCards = document.getElementById("drinks");
 
 function toNumber(number) {
-    if(!number) {
+    if (!number) {
         number = 0;
     }
-    return number
+    return number;
 }
 
 function countPrice() {
-    let selectedSoupPrice, selectedDrinkPrice, selectedMainPrice
+    let chosenSoupPrice, chosenDrinkPrice, chosenMainPrice;
+    let soupPrice, mainPrice, drkPrice;
 
-    if(selectedSoup) {
-        selectedSoupPrice = Number((selectedSoup.querySelector(".price").textContent).slice(0, -1))
+    let price;
+
+    soupPrice = (selectedSoup.querySelector(".price").textContent).slice(0, -1);
+    mainPrice = (selectedMain.querySelector(".price").textContent).slice(0, -1);
+    drkPrice = (selectedDrink.querySelector(".price").textContent).slice(0, -1);
+    
+    if (selectedSoup) {
+        chosenSoupPrice = Number(soupPrice);
     }
 
-    if(selectedMain) {
-        selectedMainPrice = Number((selectedMain.querySelector(".price").textContent).slice(0, -1))
+    if (selectedMain) {
+        chosenMainPrice = Number(mainPrice);
     }
 
-    if(selectedDrink) {
-        selectedDrinkPrice = Number((selectedDrink.querySelector(".price").textContent).slice(0, -1))
+    if (selectedDrink) {
+        chosenDrinkPrice = Number(drkPrice);
     }
 
-    document.querySelector(".fullPrice").textContent = String(toNumber(selectedSoupPrice) + toNumber(selectedDrinkPrice) + toNumber(selectedMainPrice) + "₽")
+    chosenSoupPrice = toNumber(chosenSoupPrice);
+    chosenMainPrice = toNumber(chosenMainPrice);
+    chosenDrinkPrice = toNumber(chosenDrinkPrice);
+
+    price = String(chosenDrinkPrice + chosenSoupPrice + chosenMainPrice + "₽");
+
+    document.querySelector(".fullPrice").textContent = price;
 }
 
 function showOrder() {
     document.querySelector(".nothingChosenLabel").style.display = "none";
-    const chosenDishes = document.querySelector(".chosenDishes")
+    const chosenDishes = document.querySelector(".chosenDishes");
     chosenDishes.style.display = "flex";
 }
 
 function chooseDish(dish) {
-    const dishName = dish.querySelector(".dish_name").textContent
-    const dishPrice = dish.querySelector(".price").textContent
-    if(dish.parentElement.getAttribute("id") == "soupes") {
-        document.getElementById("soupChoice").value = dishName + ` ${dishPrice}`;
-    } else if(dish.parentElement.getAttribute("id") == "main") {
-        document.getElementById("mainDishChoice").value = dishName + ` ${dishPrice}`;
-    } else if(dish.parentElement.getAttribute("id") == "drinks") {
-        document.getElementById("drinkChoice").value = dishName + ` ${dishPrice}`;
+    const dishName = dish.querySelector(".dish_name").textContent;
+    const dishPrice = dish.querySelector(".price").textContent;
+    
+    const value = dishName + ` ${dishPrice}`;
+
+    if (dish.parentElement.getAttribute("id") == "soupes") {
+        document.getElementById("soupChoice").value = value;
+    } else if (dish.parentElement.getAttribute("id") == "main") {
+        document.getElementById("mainDishChoice").value = value;
+    } else if (dish.parentElement.getAttribute("id") == "drinks") {
+        document.getElementById("drinkChoice").value = value;
     }
 }
 
 function highlight(target, selected) {
     if (selected) {
-        selected.style.border = "2px solid white"
+        selected.style.border = "2px solid white";
     }
-    target.style.border = "2px solid tomato"
+    target.style.border = "2px solid tomato";
 }
 
 dishSoupCards.onclick = function(event) {
-    let target = event.target
+    let target = event.target;
   
     if (target.tagName != "BUTTON") return;
   
-    const dishCard = target.parentElement.parentElement
-    highlight(dishCard, selectedSoup)
-    selectedSoup = dishCard
+    const dishCard = target.parentElement.parentElement;
+    highlight(dishCard, selectedSoup);
+    selectedSoup = dishCard;
 
-    showOrder()
-    chooseDish(dishCard)
-    countPrice()
+    showOrder();
+    chooseDish(dishCard);
+    countPrice();
 };
 
 dishMainCards.onclick = function(event) {
-    let target = event.target
+    let target = event.target;
   
     if (target.tagName != "BUTTON") return;
   
-    const dishCard = target.parentElement.parentElement
-    highlight(dishCard, selectedMain)
-    selectedMain = dishCard
+    const dishCard = target.parentElement.parentElement;
+    highlight(dishCard, selectedMain);
+    selectedMain = dishCard;
 
-    showOrder()
-    chooseDish(dishCard)
-    countPrice()
-}
+    showOrder();
+    chooseDish(dishCard);
+    countPrice();
+};
 
 dishDrinksCards.onclick = function(event) {
-    let target = event.target
+    let target = event.target;
 
     if (target.tagName != "BUTTON") return;
 
-    const dishCard = target.parentElement.parentElement
-    highlight(dishCard, selectedDrink)
-    selectedDrink = dishCard
+    const dishCard = target.parentElement.parentElement;
+    highlight(dishCard, selectedDrink);
+    selectedDrink = dishCard;
 
-    showOrder()
-    chooseDish(dishCard)
-    countPrice()
+    showOrder();
+    chooseDish(dishCard);
+    countPrice();
 };

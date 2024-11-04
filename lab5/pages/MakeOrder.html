@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Food Construct</title>
+        <link rel="stylesheet" href="../styles/MakeOrderStyle.css" />
+    </head>
+    <script type="module" defer src="../scripts.js"></script>
+    <body>
+        <header>
+            <h1>Food Construct</h1>
+
+            <div class="navbar">
+                <nav>
+                    <ul>
+                        <li><a href="../pages/index.html">О нас</a></li>
+                        <li><a href="#benefits">Собрать ланч</a></li>
+                        <li><a href="#dishes">Заказы</a></li>
+                        <li><a href="#contact">Контакты</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <div class="container">
+                <section>
+                    <div class="dishes" id="dishes">
+
+                        <h2>Выберите суп</h2>
+
+                        <div class="filters" id="soupFilters">
+                            <button class="filterButton" data-kind="fish">рыбный</button>
+                            <button class="filterButton" data-kind="meat">мясной</button>
+                            <button class="filterButton" data-kind="veg">вегетарианский</button>
+                        </div>
+
+                        <div class="dish-block" id="soupes">
+                            <div class="dish-card" data-dish="gazpacho">
+                                <figure class="dish_img">
+                                    <img
+                                        src="/"
+                                        alt=""
+                                    />
+                                </figure>
+                                <p class="price"></p>
+                                <p class="dish_name"></p>
+                                <div class="button_and">
+                                    <p class="weight"></p>
+                                    <button>Добавить</button>
+                                </div>
+                            </div>
+    
+                            <div class="dish-card" data-dish="mushroomSoup">
+                                <figure class="dish_img">
+                                    <img
+                                        src="/"
+                                        alt=""
+                                    />
+                                </figure>
+                                <p class="price"></p>
+                                <p class="dish_name"></p>
+                                <div class="button_and">
+                                    <p class="weight"></p>
+                                    <button>Добавить</button>
+                                </div>
+                            </div>
+    
+                            <div class="dish-card" data-dish="norwegianSoup">
+                                <figure class="dish_img">
+                                    <img
+                                        src="/"
+                                        alt=""
+                                    />
+                                </figure>
+                                <p class="price"></p>
+                                <p class="dish_name"></p>
+                                <div class="button_and">
+                                    <p class="weight"></p>
+                                    <button>Добавить</button>
+                                </div>
+                            </div>
+
+                            <div class="dish-card" data-dish="ramen">
+                                <figure class="dish_img">
+                                    <img
+                                        src="/"
+                                        alt=""
+                                    />
+                                </figure>
+                                <p class="price"></p>
+                                <p class="dish_name"></p>
+                                <div class="button_and">
+                                    <p class="weight"></p>
+                                    <button>Добавить</button>
+                                </div>
+                            </div>
+
+                            <div class="dish-card" data-dish="tomYum">
+                                <figure class="dish_img">
+                                    <img
+                                        src="/"
+                                        alt=""
+                                    />
+                                </figure>
+                                <p class="price"></p>
+                                <p class="dish_name"></p>
+                                <div class="button_and">
+                                    <p class="weight"></p>
+                                    <button>Добавить</button>
+                                </div>
+                            </div>
+
+                            <div class="dish-card" data-dish="chickenSoup">
+                                <figure class="dish_img">
+                                    <img
+                                        src="/"
+                                        alt=""
+                                    />
+                                </figure>
+                                <p class="price"></p>
+                                <p class="dish_name"></p>
+                                <div class="button_and">
+                                    <p class="weight"></p>
+                                    <button>Добавить</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2>Выберите главное блюдо</h2>
+
+                        <div class="filters" id="mainFilters">
+                            <button class="filterButton" data-kind="fish">рыбное</button>
+                            <button class="filterButton" data-kind="meat">мясное</button>
+                            <button class="filterButton" data-kind="veg">вегетарианское</button>
+                        </div>
+
+                        <div class="dish-block" id="main">
+                            <div class="dish-card" data-dish="friedPotatoesWithMushrooms">
+                                <figure class="dish_img">
+                                    <img
+                                        src="/"
+                                        alt=""
+                                    />
+                                </figure>
+                                <p class="price"></p>
+                                <p class="dish_name"></p>
+                                <div class="button_and">
+                                    <p class="weight"></p>
+                                    <button>Добавить</button>
+                                </div>
+                            </div>
+    
+                            <div class="dish-card" data-dish="lasagna">
+                                <figure class="dish_img">
+                                    <img
+                                        src="/"
+                                        alt=""
+                                    />
+                                </figure>
+                                <p class="price"></p>
+                                <p class="dish_name"></p>
+                                <div class="button_and">
+                                    <p class="weight"></p>
+                                    <button>Добавить</button>
+                                </div>
+                            </div>
+    
+                            <div class="dish-card" data-dish="chickenCutletsAndMashedPotatoes">
+                                <figure class="dish_img">
+                                    <img
+                                        src="/"
+                                        alt=""
+                                    />
+                                </figure>
+                                <p class="price"></p>
+                                <p class="dish_name">
+                                    
+                                </p>
+                                <div class="button_and">
+                                    <p class="weight"></p>
+                                    <button>Добавить</button>
+                                </div>
+                            </div>
+
+                            <div class="dish-card" data-dish="fishCutlet">
+                                <figure class="dish_img">
+                                    <img
+                                        src="/"
+                                        alt=""
+                                    />
+                                </figure>
+                                <p class="price"></p>
+                                <p class="dish_name">
+                                    
+                                </p>
+                                <div class="button_and">
+                                    <p class="weight"></p>
+                                    <button>Добавить</button>
+                                </div>
+                            </div>
+
+                            <div class="dish-card" data-dish="pizzaMargarita">
+                                <figure class="dish_img">
+                                    <img
+                                        src="/"
+                                        alt=""
+                                    />
+                                </figure>
+                                <p class="price"></p>
+                                <p class="dish_name">
+                                    
+                                </p>
+                                <div class="button_and">
+                                    <p class="weight"></p>
+                                    <button>Добавить</button>
+                                </div>
+                            </div>
+
+                            <div class="dish-card" data-dish="pastaWithShrimps">
+                                <figure class="dish_img">
+                                    <img
+                                        src="/"
+                                        alt=""
+                                    />
+                                </figure>
+                                <p class="price"></p>
+                                <p class="dish_name">
+                                    
+                                </p>
+                                <div class="button_and">
+                                    <p class="weight"></p>
+                                    <button>Добавить</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2>Выберите салат или стартер</h2>
+
+                        <div class="filters" id="saladFilters">
+                            <button class="filterButton" data-kind="fish">рыбный</button>
+                            <button class="filterButton" data-kind="meat">мясной</button>
+                            <button class="filterButton" data-kind="veg">вегетарианский</button>
+                        </div>
+
+                        <div class="dish-block" id="salads">
+                            <div class="dish-card" data-dish="koreanSalad">
+                                <figure class="dish_img">
+                                    <img
+                                        src="/"
+                                        alt=""
+                                    />
+                                </figure>
+                                <p class="price"></p>
+                                <p class="dish_name"></p>
+                                <div class="button_and">
+                                    <p class="weight"></p>
+                                    <button>Добавить</button>
+                                </div>
+                            </div>
+    
+                            <div class="dish-card" data-dish="cesarWithChicken">
+                                <figure class="dish_img">
+                                    <img
+                                        src="/"
+                                        alt=""
+                                    />
+                                </figure>
+                                <p class="price"></p>
+                                <p class="dish_name"></p>
+                                <div class="button_and">
+                                    <p class="weight"></p>
+                                    <button>Добавить</button>
+                                </div>
+                            </div>
+    
+                            <div class="dish-card" data-dish="capreseWithMozarella">
+                                <figure class="dish_img">
+                                    <img
+                                        src="/"
+                                        alt=""
+                                    />
+                                </figure>
+                                <p class="price"></p>
+                                <p class="dish_name"></p>
+                                <div class="button_and">
+                                    <p class="weight"></p>
+                                    <button>Добавить</button>
+                                </div>
+                            </div>
+
+                            <div class="dish-card" data-dish="saladWithTuna">
+                                <figure class="dish_img">
+                                    <img
+                                        src="/"
+                                        alt=""
+                                    />
+                                </figure>
+                                <p class="price"></p>
+                                <p class="dish_name"></p>
+                                <div class="button_and">
+                                    <p class="weight"></p>
+                                    <button>Добавить</button>
+                                </div>
+                            </div>
+
+                            <div class="dish-card" data-dish="friesWithCesar">
+                                <figure class="dish_img">
+                                    <img
+                                        src="/"
+                                        alt=""
+                                    />
+                                </figure>
+                                <p class="price"></p>
+                                <p class="dish_name"></p>
+                                <div class="button_and">
+                                    <p class="weight"></p>
+                                    <button>Добавить</button>
+                                </div>
+                            </div>
+
+                            <div class="dish-card" data-dish="friesWithKetchup">
+                                <figure class="dish_img">
+                                    <img
+                                        src="/"
+                                        alt=""
+                                    />
+                                </figure>
+                                <p class="price"></p>
+                                <p class="dish_name"></p>
+                                <div class="button_and">
+                                    <p class="weight"></p>
+                                    <button>Добавить</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2>Выберите напиток</h2>
+
+                        <div class="filters" id="drinkFilters">
+                            <button class="filterButton" data-kind="cold">холодный</button>
+                            <button class="filterButton" data-kind="hot">горячий</button>
+                        </div>
+
+                        <div class="dish-block" id="drinks">
+
+                            <div class="dish-card" data-dish="orangeJuice">
+                                <figure class="dish_img">
+                                    <img
+                                        src="/"
+                                        alt=""
+                                    />
+                                </figure>
+                                <p class="price"></p>
+                                <p class="dish_name"></p>
+                                <div class="button_and">
+                                    <p class="weight"></p>
+                                    <button>Добавить</button>
+                                </div>
+                            </div>
+    
+                            <div class="dish-card" data-dish="appleJuice">
+                                <figure class="dish_img">
+                                    <img
+                                        src="/"
+                                        alt=""
+                                    />
+                                </figure>
+                                <p class="price"></p>
+                                <p class="dish_name"></p>
+                                <div class="button_and">
+                                    <p class="weight"></p>
+                                    <button>Добавить</button>
+                                </div>
+                            </div>
+    
+                            <div class="dish-card" data-dish="carrotJuice">
+                                <figure class="dish_img">
+                                    <img
+                                        src="/"
+                                        alt=""
+                                    />
+                                </figure>
+                                <p class="price"></p>
+                                <p class="dish_name"></p>
+                                <div class="button_and">
+                                    <p class="weight"></p>
+                                    <button>Добавить</button>
+                                </div>
+                            </div>
+
+                            <div class="dish-card" data-dish="capuchino">
+                                <figure class="dish_img">
+                                    <img
+                                        src="/"
+                                        alt=""
+                                    />
+                                </figure>
+                                <p class="price"></p>
+                                <p class="dish_name"></p>
+                                <div class="button_and">
+                                    <p class="weight"></p>
+                                    <button>Добавить</button>
+                                </div>
+                            </div>
+
+                            <div class="dish-card" data-dish="greenTea">
+                                <figure class="dish_img">
+                                    <img
+                                        src="/"
+                                        alt=""
+                                    />
+                                </figure>
+                                <p class="price"></p>
+                                <p class="dish_name"></p>
+                                <div class="button_and">
+                                    <p class="weight"></p>
+                                    <button>Добавить</button>
+                                </div>
+                            </div>
+
+                            <div class="dish-card" data-dish="blackTea">
+                                <figure class="dish_img">
+                                    <img
+                                        src="/"
+                                        alt=""
+                                    />
+                                </figure>
+                                <p class="price"></p>
+                                <p class="dish_name"></p>
+                                <div class="button_and">
+                                    <p class="weight"></p>
+                                    <button>Добавить</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2>Выберите десерт</h2>
+
+                        <div class="filters" id="dessertFilters">
+                            <button class="filterButton" data-kind="small">маленькая порция</button>
+                            <button class="filterButton" data-kind="middle">средняя порция</button>
+                            <button class="filterButton" data-kind="big">большая порция</button>
+                        </div>
+
+                        <div class="dish-block" id="desserts">
+                            <div class="dish-card" data-dish="pahlava">
+                                <figure class="dish_img">
+                                    <img
+                                        src="/"
+                                        alt=""
+                                    />
+                                </figure>
+                                <p class="price"></p>
+                                <p class="dish_name"></p>
+                                <div class="button_and">
+                                    <p class="weight"></p>
+                                    <button>Добавить</button>
+                                </div>
+                            </div>
+    
+                            <div class="dish-card" data-dish="cheesecake">
+                                <figure class="dish_img">
+                                    <img
+                                        src="/"
+                                        alt=""
+                                    />
+                                </figure>
+                                <p class="price"></p>
+                                <p class="dish_name"></p>
+                                <div class="button_and">
+                                    <p class="weight"></p>
+                                    <button>Добавить</button>
+                                </div>
+                            </div>
+    
+                            <div class="dish-card" data-dish="chocolateCheesecake">
+                                <figure class="dish_img">
+                                    <img
+                                        src="/"
+                                        alt=""
+                                    />
+                                </figure>
+                                <p class="price"></p>
+                                <p class="dish_name"></p>
+                                <div class="button_and">
+                                    <p class="weight"></p>
+                                    <button>Добавить</button>
+                                </div>
+                            </div>
+
+                            <div class="dish-card" data-dish="chocolateCake">
+                                <figure class="dish_img">
+                                    <img
+                                        src="/"
+                                        alt=""
+                                    />
+                                </figure>
+                                <p class="price"></p>
+                                <p class="dish_name"></p>
+                                <div class="button_and">
+                                    <p class="weight"></p>
+                                    <button>Добавить</button>
+                                </div>
+                            </div>
+
+                            <div class="dish-card" data-dish="threeDonuts">
+                                <figure class="dish_img">
+                                    <img
+                                        src="/"
+                                        alt=""
+                                    />
+                                </figure>
+                                <p class="price"></p>
+                                <p class="dish_name"></p>
+                                <div class="button_and">
+                                    <p class="weight"></p>
+                                    <button>Добавить</button>
+                                </div>
+                            </div>
+
+                            <div class="dish-card" data-dish="sixDonuts">
+                                <figure class="dish_img">
+                                    <img
+                                        src="/"
+                                        alt=""
+                                    />
+                                </figure>
+                                <p class="price"></p>
+                                <p class="dish_name"></p>
+                                <div class="button_and">
+                                    <p class="weight"></p>
+                                    <button>Добавить</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="make-order">
+                            <h2>Сделать заказ</h2>
+                            <form action="https://httpbin.org/post" method="POST">
+                                <div class="orderPart">
+                                    <h3>Ваш заказ</h3>
+                                    <h3 class="nothingChosenLabel">Ничего не выбрано</h3>
+                                    <div class="chosenDishes" id="chosenDishes">
+                                        <div>
+                                            <label for="soupChoice">Суп</label>
+                                            <input type="text" name="soupChoice" id="soupChoice" value="Блюдо не выбрано" readonly required>
+                                        </div>
+                                        
+                                        <div>
+                                            <label for="mainDishChoice">Главное блюдо</label>
+                                            <input type="text" name="mainDishChoice" id="mainDishChoice" value="Блюдо не выбрано" readonly required>
+                                        </div>
+                                        
+                                        <div>
+                                            <label for="saladChoice">Салат или стартер</label>
+                                            <input type="text" name="saladChoice" id="saladChoice" value="Салат или стартер не выбран" readonly required>
+                                        </div>
+
+                                        <div>
+                                            <label for="drinkChoice">Напиток</label>
+                                            <input type="text" name="drinkChoice" id="drinkChoice" value="Напиток не выбран" readonly required>
+                                        </div>
+                                        
+                                        <div>
+                                            <label for="dessertChoice">Десерт</label>
+                                            <input type="text" name="dessertChoice" id="dessertChoice" value="Десерт не выбран" readonly required>
+                                        </div>
+
+                                        <div>
+                                            <h3>Стоимость заказа</h3>
+                                            <h3 class="fullPrice"></h3>
+                                        </div>
+                                    </div>
+            
+                                    <div>
+                                        <label for="commentForOrder">Комментарии к заказу</label>
+                                        <textarea name="commentForOrder" id="commentForOrder"></textarea>
+                                    </div>
+                                </div>
+            
+                                <div class="userDataPart">
+                                    <h3>Ваши данные</h3>
+                                    <div>
+                                        <label for="userName">Имя</label>
+                                        <input type="text" name="userName" id="userName" required>
+                                    </div>
+                                    
+                                    <div>
+                                        <label for="userEmail">Email</label>
+                                        <input type="email" name="userEmail" id="userEmail" required>
+                                    </div>
+            
+                                    <div class="broadcastDiv">
+                                        <input type="checkbox" name="isGetBroadcasting" id="isGetBroadcasting" value="true" checked>
+                                        <label for="isGetBroadcasting">Получать информацию о скидках и акциях</label>
+                                    </div>
+            
+                                    <div>
+                                        <label for="userPhoneNumber">Номер телефона</label>
+                                        <input type="tel" name="userPhoneNumber" id="userPhoneNumber" required>
+                                    </div>
+            
+                                    <div>
+                                        <label for="">Адрес доставки</label>
+                                        <input type="text" name="" id="" required>
+                                        <p>Доставка осуществляется только по Москве</p>
+                                    </div>
+            
+                                    <div>
+                                        <fieldset>
+                                            <legend>Время доставки</legend>
+                                            <div>
+                                                <input type="radio" name="deliverySpeed" id="fast" value="1" required>
+                                                <label for="fast">Как можно скорее</label>
+                                            </div>
+                                            
+                                            <div>
+                                                <input type="radio" name="deliverySpeed" id="inTime" value="2" required>
+                                                <label for="inTime">К указанному времени</label>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+            
+                                    <div>
+                                        <label for="deliveryTime">Укажите время доставки</label>
+                                        <input type="time" name="deliveryTime" id="deliveryTime" min="7:00" max="23:00" step="300">
+                                        <p>Доступное время доставки с 7:00 до 23:00</p>
+                                    </div>
+            
+                                    <div class="buttons">
+                                        <div>
+                                            <button type="reset" id="reset">Сбросить</button>
+                                        </div>
+            
+                                        <div>
+                                            <button type="submit">Отправить</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <footer>
+            <p>Позвонить нам +7-000-000-00-00</p>
+        </footer>
+    </body>
+</html>

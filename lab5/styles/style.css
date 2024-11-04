@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=SUSE:wght@100..800&display=swap');
+
+* {
+    box-sizing: border-box
+}
+
+h1 {
+    margin: 70px 70px 40px 70px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', 'Times New Roman';
+    font-size: 400;
+    font-weight: 500;
+}
+
+main {
+    flex-grow: 1;
+}
+
+.navbar {
+    margin: 40px 70px;
+    padding: 0;
+}
+
+.navbar ul {
+    text-decoration: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar li {
+    gap: 15px;
+    margin-right: 20px;
+    font-size: 500;
+}
+
+.navbar a.active {
+    color: tomato;
+}
+
+.container {
+    margin: 0 70px;
+}
+
+figure {
+    padding: 0;
+    margin: 30px 0 0 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+p {
+    max-width: 800px;
+}
+
+section ul {
+    padding: 0;
+}
+
+table {
+    display: table;
+}
+
+table, th, td {
+    border: 1px solid;
+    border-collapse: collapse;
+    text-align: center;
+    padding: 10px 10px;
+    margin-bottom: 40px;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    padding: 20px 70px;
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: orange;
+    transition: 0.3s;
+}
+
+@media screen and (max-width: 800px){
+    img {
+        width: 500px;
+    }
+
+    .navbar ul{
+        justify-content: space-between;
+    }
+}
+
+@media screen and (max-width: 600px){
+    h1 {
+        text-align: center;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    a {
+        font-size: 1.01em;
+    }
+
+    table, th, td {
+        font-size: 0.995em;
+    }
+
+    img {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    table, th, td {
+        font-size: 0.99em;
+    }
+}
