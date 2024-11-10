@@ -1,3 +1,4 @@
+"use strict";
 import { dishes } from "./db.js";
 
 let selectedSoupFilter;

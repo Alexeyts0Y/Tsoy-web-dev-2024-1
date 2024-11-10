@@ -1,8 +1,13 @@
+"use strict"
 import { dishes } from "./db.js";
 
 let selectedSoup;
 let selectedMain;
 let selectedDrink;
+
+const dishSoupsCards = document.getElementById("soupes");
+const dishMainCards = document.getElementById("main");
+const dishDrinksCards = document.getElementById("drinks");
 
 function fillDishCard(dishCard, dishData) {
     dishCard.querySelector(".dish_img img").src = dishData.image;
@@ -12,55 +17,106 @@ function fillDishCard(dishCard, dishData) {
     dishCard.querySelector(".weight").textContent = dishData.count;
 }
 
-const dishCards = document.querySelectorAll(".dish-card");
-
-dishCards.forEach(dishCard => {
-    const keyword = dishCard.getAttribute("data-dish");
-    const dishData = dishes.find(dish => dish.keyword == keyword);
+function createDishCard() {
+    let dishCard = document.createElement("div");
+    let figure = document.createElement("figure");
+    let img = document.createElement("img");
+    let weigth = document.createElement("p");
+    let price = document.createElement("p");
+    let dishName = document.createElement("p");
+    let div = document.createElement("div");
+    let button = document.createElement("button");
     
-    if (dishData) {
-        fillDishCard(dishCard, dishData);
+    dishCard.className = "dish-card";
+    figure.className = "dish_img";
+    button.textContent = "Добавить";
+    weigth.className = "weight";
+    price.className = "price";
+    dishName.className = "dish_name";
+
+
+    figure.append(img);
+    div.append(weigth);
+    div.append(button);
+
+    dishCard.append(figure);
+    dishCard.append(price);
+    dishCard.append(dishName);
+    dishCard.append(div);
+
+    return dishCard;
+}
+
+dishes.forEach((dish) => {
+    let dishCard = createDishCard();
+
+    switch (dish.category) {
+    case "soups":
+        dishCard.setAttribute("data-dish", `${dish.keyword}`);
+        fillDishCard(dishCard, dish);
+        dishSoupsCards.append(dishCard);
+        break;
+
+    case "mainCourse":
+        dishCard.setAttribute("data-dish", `${dish.keyword}`);
+        fillDishCard(dishCard, dish);
+        dishMainCards.append(dishCard);
+        break;
+    
+    case "beverages":
+        dishCard.setAttribute("data-dish", `${dish.keyword}`);
+        fillDishCard(dishCard, dish);
+        dishDrinksCards.append(dishCard);
+        break;
     }
 });
 
-const dishSoupCards = document.getElementById("soupes");
-const dishMainCards = document.getElementById("main");
-const dishDrinksCards = document.getElementById("drinks");
-
-function toNumber(number) {
+function toNumber(stringNumber) {
+    let number = Number(stringNumber);
     if (!number) {
         number = 0;
     }
     return number;
-}
+};
 
 function countPrice() {
-    let chosenSoupPrice, chosenDrinkPrice, chosenMainPrice;
+    let chosenSoupPrice;
+    let chosenDrinkPrice;
+    let chosenMainPrice;
+
     let soupPrice, mainPrice, drkPrice;
 
-    let price;
+    let price1stPart, price;
 
-    soupPrice = (selectedSoup.querySelector(".price").textContent).slice(0, -1);
-    mainPrice = (selectedMain.querySelector(".price").textContent).slice(0, -1);
-    drkPrice = (selectedDrink.querySelector(".price").textContent).slice(0, -1);
+    let soupPriceContent;
+    let mainPriceContent;
+    let drkPriceContent;
     
     if (selectedSoup) {
         chosenSoupPrice = Number(soupPrice);
+        soupPriceContent = (selectedSoup.querySelector(".price").textContent);
+        soupPrice = soupPriceContent.slice(0, -1);
     }
-
+    
     if (selectedMain) {
         chosenMainPrice = Number(mainPrice);
+        mainPriceContent = (selectedMain.querySelector(".price").textContent);
+        mainPrice = mainPriceContent.slice(0, -1);
     }
-
+    
     if (selectedDrink) {
         chosenDrinkPrice = Number(drkPrice);
+        drkPriceContent = (selectedDrink.querySelector(".price").textContent);
+        drkPrice = drkPriceContent.slice(0, -1);
     }
+    
+    chosenSoupPrice = toNumber(soupPrice);
+    chosenMainPrice = toNumber(mainPrice);
+    chosenDrinkPrice = toNumber(drkPrice);
 
-    chosenSoupPrice = toNumber(chosenSoupPrice);
-    chosenMainPrice = toNumber(chosenMainPrice);
-    chosenDrinkPrice = toNumber(chosenDrinkPrice);
+    price1stPart = chosenDrinkPrice + chosenSoupPrice + chosenMainPrice;
 
-    price = String(chosenDrinkPrice + chosenSoupPrice + chosenMainPrice + "₽");
+    price = String(price1stPart) + "₽";
 
     document.querySelector(".fullPrice").textContent = price;
 }
@@ -93,7 +149,7 @@ function highlight(target, selected) {
     target.style.border = "2px solid tomato";
 }
 
-dishSoupCards.onclick = function(event) {
+dishSoupsCards.onclick = function(event) {
     let target = event.target;
   
     if (target.tagName != "BUTTON") return;
