@@ -37,12 +37,69 @@ function fillDishCard(dishCard, dishData) {
     dishCard.querySelector(".weight").textContent = dishData.count;
 }
 
-dishCards.forEach(dishCard => {
-    const keyword = dishCard.dataset.dish;
-    const dishData = dishes.find(dish => dish.keyword == keyword);
+function createDishCard() {
+    let dishCard = document.createElement("div");
+    let figure = document.createElement("figure");
+    let img = document.createElement("img");
+    let weigth = document.createElement("p");
+    let price = document.createElement("p");
+    let dishName = document.createElement("p");
+    let div = document.createElement("div");
+    let button = document.createElement("button");
     
-    if (dishData) {
-        fillDishCard(dishCard, dishData);
+    dishCard.className = "dish-card";
+    figure.className = "dish_img";
+    button.textContent = "Добавить";
+    weigth.className = "weight";
+    price.className = "price";
+    dishName.className = "dish_name";
+
+
+    figure.append(img);
+    div.append(weigth);
+    div.append(button);
+
+    dishCard.append(figure);
+    dishCard.append(price);
+    dishCard.append(dishName);
+    dishCard.append(div);
+
+    return dishCard;
+}
+
+dishes.forEach((dish) => {
+    let dishCard = createDishCard();
+
+    switch (dish.category) {
+    case "soups":
+        dishCard.setAttribute("data-dish", `${dish.keyword}`);
+        fillDishCard(dishCard, dish);
+        dishSoupsCards.append(dishCard);
+        break;
+
+    case "mainCourse":
+        dishCard.setAttribute("data-dish", `${dish.keyword}`);
+        fillDishCard(dishCard, dish);
+        dishMainCards.append(dishCard);
+        break;
+
+    case "salads":
+        dishCard.setAttribute("data-dish", `${dish.keyword}`);
+        fillDishCard(dishCard, dish);
+        dishSaladsCards.append(dishCard);
+        break;
+    
+    case "beverages":
+        dishCard.setAttribute("data-dish", `${dish.keyword}`);
+        fillDishCard(dishCard, dish);
+        dishDrinksCards.append(dishCard);
+        break;
+
+    case "desserts":
+        dishCard.setAttribute("data-dish", `${dish.keyword}`);
+        fillDishCard(dishCard, dish);
+        dishSaladsCards.append(dishCard);
+        break;
     }
 });
 
