@@ -27,9 +27,6 @@ const dishDessertsCards = document.getElementById("desserts");
 
 const resetButton = document.getElementById("reset");
 
-const dishCards = document.querySelectorAll(".dish-card");
-const dishFilters = document.querySelectorAll(".filterButton");
-
 function fillDishCard(dishCard, dishData) {
     dishCard.querySelector(".dish_img img").src = dishData.image;
     dishCard.querySelector(".dish_img img").alt = dishData.name;
@@ -99,7 +96,7 @@ dishes.forEach((dish) => {
     case "desserts":
         dishCard.setAttribute("data-dish", `${dish.keyword}`);
         fillDishCard(dishCard, dish);
-        dishSaladsCards.append(dishCard);
+        dishDessertsCards.append(dishCard);
         break;
     }
 });
@@ -287,6 +284,9 @@ dishDessertsCards.onclick = function(event) {
     chooseDish(dishCard);
     countPrice();
 };
+
+const dishCards = document.querySelectorAll(".dish-card");
+const dishFilters = document.querySelectorAll(".filterButton");
 
 resetButton.onclick = function() {
     dishCards.forEach(dishcard => {
