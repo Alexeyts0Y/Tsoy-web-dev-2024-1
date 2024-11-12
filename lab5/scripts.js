@@ -322,7 +322,7 @@ function filterDishes(cards, selectedFilter) {
         const dishData = dishes.find(dish => dish.keyword == keyword);
 
         if (dishData.kind == selectedFilter.dataset.kind) {
-            dishCard.style.display = "block";
+            dishCard.style.display = "flex";
         } else {
             dishCard.style.display = "none";
         }
