@@ -1,11 +1,13 @@
 "use strict";
 import { dishes } from "./db.js";
 
-let selectedSoupFilter;
-let selectedMainFilter;
-let selectedDrinkFilter;
-let selectedSaladFilter;
-let selectedDessertFilter;
+const modal = document.getElementById("modal");
+
+let soupChoiceFilter;
+let mainChoiceFilter;
+let drkChoiceFilter;
+let sldChoiceFilter;
+let dsrtChoiceFilter;
 
 let isActive1 = false;
 let isActive2 = false;
@@ -13,11 +15,11 @@ let isActive3 = false;
 let isActive4 = false;
 let isActive5 = false;
 
-let selectedSoup;
-let selectedMain;
-let selectedDrink;
-let selectedSalad;
-let selectedDsrt;
+let soupChoice;
+let mainChoice;
+let drkChoice;
+let sldChoice;
+let dsrtChoice;
 
 const soupFilters = document.getElementById("soupFilters");
 const mainFilters = document.getElementById("mainFilters");
@@ -53,11 +55,11 @@ function createDishCard() {
     
     dishCard.className = "dish-card";
     figure.className = "dish_img";
-    button.textContent = "Добавить";
     weigth.className = "weight";
     price.className = "price";
     dishName.className = "dish_name";
-
+    
+    button.textContent = "Добавить";
 
     figure.append(img);
     div.append(weigth);
@@ -132,33 +134,33 @@ function countPrice() {
     let sldPriceContent;
     let dsrtPriceContent;
     
-    if (selectedSoup) {
+    if (soupChoice) {
         chosenSoupPrice = Number(soupPrice);
-        soupPriceContent = (selectedSoup.querySelector(".price").textContent);
+        soupPriceContent = (soupChoice.querySelector(".price").textContent);
         soupPrice = soupPriceContent.slice(0, -1);
     }
     
-    if (selectedMain) {
+    if (mainChoice) {
         chosenMainPrice = Number(mainPrice);
-        mainPriceContent = (selectedMain.querySelector(".price").textContent);
+        mainPriceContent = (mainChoice.querySelector(".price").textContent);
         mainPrice = mainPriceContent.slice(0, -1);
     }
     
-    if (selectedDrink) {
+    if (drkChoice) {
         chosenDrinkPrice = Number(drkPrice);
-        drkPriceContent = (selectedDrink.querySelector(".price").textContent);
+        drkPriceContent = (drkChoice.querySelector(".price").textContent);
         drkPrice = drkPriceContent.slice(0, -1);
     }
     
-    if (selectedDsrt) {
+    if (dsrtChoice) {
         chosenDessertPrice = Number(dsrtPrice);
-        dsrtPriceContent = (selectedDsrt.querySelector(".price").textContent);
+        dsrtPriceContent = (dsrtChoice.querySelector(".price").textContent);
         dsrtPrice = dsrtPriceContent.slice(0, -1);
     }
     
-    if (selectedSalad) {
+    if (sldChoice) {
         chosenSaladPrice = Number(sldPrice);
-        sldPriceContent = (selectedSalad.querySelector(".price").textContent);
+        sldPriceContent = (sldChoice.querySelector(".price").textContent);
         sldPrice = sldPriceContent.slice(0, -1);
     }
     
@@ -195,15 +197,15 @@ function chooseDish(dish) {
     const value = dishName + ` ${dishPrice}`;
     
     if (dish.parentElement.getAttribute("id") == "soupes") {
-        document.getElementById("soupChoice").value = value;
+        document.getElementById("soupChoice").setAttribute("value", value);
     } else if (dish.parentElement.getAttribute("id") == "main") {
-        document.getElementById("mainDishChoice").value = value;
+        document.getElementById("mainDishChoice").setAttribute("value", value);
     } else if (dish.parentElement.getAttribute("id") == "drinks") {
-        document.getElementById("drinkChoice").value = value;
+        document.getElementById("drinkChoice").setAttribute("value", value);
     } else if (dish.parentElement.getAttribute("id") == "salads") {
-        document.getElementById("saladChoice").value = value;
+        document.getElementById("saladChoice").setAttribute("value", value);
     } else if (dish.parentElement.getAttribute("id") == "desserts") {
-        document.getElementById("dessertChoice").value = value;
+        document.getElementById("dessertChoice").setAttribute("value", value);
     }
 };
 
@@ -227,8 +229,8 @@ dishSoupsCards.onclick = function(event) {
     if (target.tagName != "BUTTON") return;
   
     const dishCard = target.parentElement.parentElement;
-    highlightCard(dishCard, selectedSoup);
-    selectedSoup = dishCard;
+    highlightCard(dishCard, soupChoice);
+    soupChoice = dishCard;
     
     showOrder(true);
     chooseDish(dishCard);
@@ -241,8 +243,8 @@ dishMainCards.onclick = function(event) {
     if (target.tagName != "BUTTON") return;
     
     const dishCard = target.parentElement.parentElement;
-    highlightCard(dishCard, selectedMain);
-    selectedMain = dishCard;
+    highlightCard(dishCard, mainChoice);
+    mainChoice = dishCard;
     
     showOrder(true);
     chooseDish(dishCard);
@@ -255,8 +257,8 @@ dishDrinksCards.onclick = function(event) {
     if (target.tagName != "BUTTON") return;
     
     const dishCard = target.parentElement.parentElement;
-    highlightCard(dishCard, selectedDrink);
-    selectedDrink = dishCard;
+    highlightCard(dishCard, drkChoice);
+    drkChoice = dishCard;
     
     showOrder(true);
     chooseDish(dishCard);
@@ -269,8 +271,8 @@ dishSaladsCards.onclick = function(event) {
     if (target.tagName != "BUTTON") return;
     
     const dishCard = target.parentElement.parentElement;
-    highlightCard(dishCard, selectedSalad);
-    selectedSalad = dishCard;
+    highlightCard(dishCard, sldChoice);
+    sldChoice = dishCard;
     
     showOrder(true);
     chooseDish(dishCard);
@@ -283,8 +285,8 @@ dishDessertsCards.onclick = function(event) {
     if (target.tagName != "BUTTON") return;
     
     const dishCard = target.parentElement.parentElement;
-    highlightCard(dishCard, selectedDsrt);
-    selectedDsrt = dishCard;
+    highlightCard(dishCard, dsrtChoice);
+    dsrtChoice = dishCard;
     
     showOrder(true);
     chooseDish(dishCard);
@@ -305,17 +307,17 @@ resetButton.onclick = function() {
     });
 
 
-    selectedSoup = undefined;
-    selectedMain = undefined;
-    selectedDrink = undefined;
-    selectedSalad = undefined;
-    selectedDsrt = undefined;
+    soupChoice = undefined;
+    mainChoice = undefined;
+    drkChoice = undefined;
+    sldChoice = undefined;
+    dsrtChoice = undefined;
 
-    selectedSoupFilter = undefined;
-    selectedMainFilter = undefined;
-    selectedDrinkFilter = undefined;
-    selectedSaladFilter = undefined;
-    selectedDessertFilter = undefined;
+    soupChoiceFilter = undefined;
+    mainChoiceFilter = undefined;
+    drkChoicekFilter = undefined;
+    sldChoiceFilter = undefined;
+    dsrtChoiceFilter = undefined;
 
     countPrice();
     showOrder(false);
@@ -349,16 +351,16 @@ soupFilters.onclick = function(event) {
     
     if (target.tagName != "BUTTON") return;
     
-    if (isActive1 && (target === selectedSoupFilter)) {
+    if (isActive1 && (target === soupChoiceFilter)) {
         isActive1 = false;
-        resetFilter(selectedSoupFilter, cards, target);
+        resetFilter(soupChoiceFilter, cards, target);
         return;
     }
 
     isActive1 = true;
-    highlightFilter(target, selectedSoupFilter);
-    selectedSoupFilter = target;
-    filterDishes(cards, selectedSoupFilter);
+    highlightFilter(target, soupChoiceFilter);
+    soupChoiceFilter = target;
+    filterDishes(cards, soupChoiceFilter);
 };
 
 mainFilters.onclick = function(event) {
@@ -367,16 +369,16 @@ mainFilters.onclick = function(event) {
     
     if (target.tagName != "BUTTON") return;
     
-    if (isActive2 && (target === selectedMainFilter)) {
+    if (isActive2 && (target === mainChoiceFilter)) {
         isActive2 = false;
-        resetFilter(selectedMainFilter, cards, target);
+        resetFilter(mainChoiceFilter, cards, target);
         return;
     }
 
     isActive2 = true;
-    highlightFilter(target, selectedMainFilter);
-    selectedMainFilter = target;
-    filterDishes(cards, selectedMainFilter);
+    highlightFilter(target, mainChoiceFilter);
+    mainChoiceFilter = target;
+    filterDishes(cards, mainChoiceFilter);
 };
 
 drinkFilters.onclick = function(event) {
@@ -385,16 +387,16 @@ drinkFilters.onclick = function(event) {
     
     if (target.tagName != "BUTTON") return;
     
-    if (isActive3 && (target === selectedDrinkFilter)) {
+    if (isActive3 && (target === drkChoiceFilter)) {
         isActive3 = false;
-        resetFilter(selectedDrinkFilter, cards, target);
+        resetFilter(drkChoiceFilter, cards, target);
         return;
     }
 
     isActive3 = true;
-    highlightFilter(target, selectedDrinkFilter);
-    selectedDrinkFilter = target;
-    filterDishes(cards, selectedDrinkFilter);
+    highlightFilter(target, drkChoiceFilter);
+    drkChoiceFilter = target;
+    filterDishes(cards, drkChoiceFilter);
 };
 
 saladFilters.onclick = function(event) {
@@ -403,16 +405,16 @@ saladFilters.onclick = function(event) {
     
     if (target.tagName != "BUTTON") return;
     
-    if (isActive4 && (target === selectedSaladFilter)) {
+    if (isActive4 && (target === sldChoiceFilter)) {
         isActive4 = false;
-        resetFilter(selectedSaladFilter, cards, target);
+        resetFilter(sldChoiceFilter, cards, target);
         return;
     }
 
     isActive4 = true;
-    highlightFilter(target, selectedSaladFilter);
-    selectedSaladFilter = target;
-    filterDishes(cards, selectedSaladFilter);
+    highlightFilter(target, sldChoiceFilter);
+    sldChoiceFilter = target;
+    filterDishes(cards, sldChoiceFilter);
 };
 
 dessertFilters.onclick = function(event) {
@@ -421,14 +423,50 @@ dessertFilters.onclick = function(event) {
     
     if (target.tagName != "BUTTON") return;
     
-    if (isActive5 && (target === selectedDessertFilter)) {
+    if (isActive5 && (target === dsrtChoiceFilter)) {
         isActive5 = false;
-        resetFilter(selectedDessertFilter, cards, target);
+        resetFilter(dsrtChoiceFilter, cards, target);
         return;
     }
 
     isActive5 = true;
-    highlightFilter(target, selectedDessertFilter);
-    selectedDessertFilter = target;
-    filterDishes(cards, selectedDessertFilter);
+    highlightFilter(target, dsrtChoiceFilter);
+    dsrtChoiceFilter = target;
+    filterDishes(cards, dsrtChoiceFilter);
+};
+
+function displayModal(text) {
+    const window = document.getElementById("window");
+    const p = window.querySelector(".text");
+    
+    p.textContent = text;
+    modal.className = "modal active";
+}
+
+document.querySelector(".orderForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    if (!soupChoice && !mainChoice && !sldChoice && !drkChoice && !dsrtChoice) {
+        displayModal("Ничего не выбрано. Выберите блюда для заказа");
+        return false;
+    } else if ((soupChoice || mainChoice || sldChoice) && !drkChoice) {
+        displayModal("Выберите напиток");
+        return false;
+    } else if (soupChoice && !mainChoice) {
+        displayModal("Выберите главное блюдо/салат/стартер");
+        return false;
+    } else if (sldChoice && (!mainChoice || !soupChoice)) {
+        displayModal("Выберите суп или главное блюдо");
+        return false;
+    } else if (!mainChoice && (drkChoice || dsrtChoice)) {
+        displayModal("Выберите главное блюдо");
+        return false;
+    }
+    this.submit();
+});
+
+const okayBtn = document.querySelector(".okayBtn");
+
+okayBtn.onclick = function() {
+    modal.className = "modal";
 };
