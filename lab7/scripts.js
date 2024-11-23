@@ -201,17 +201,23 @@ function chooseDish(dish) {
     const dishPrice = dish.querySelector(".price").textContent;
     
     const value = dishName + ` ${dishPrice}`;
+    const keyword = `${dish.dataset.dish}`;
     
     if (dish.parentElement.getAttribute("id") == "soupes") {
-        document.getElementById("soupChoice").setAttribute("value", value);
+        document.getElementById("soupPlaceholder").setAttribute("value", value);
+        document.getElementById("soupChoice").setAttribute("value", keyword);
     } else if (dish.parentElement.getAttribute("id") == "main") {
-        document.getElementById("mainDishChoice").setAttribute("value", value);
+        document.getElementById("mainPlaceholder").setAttribute("value", value);
+        document.getElementById("mainChoice").setAttribute("value", keyword);
     } else if (dish.parentElement.getAttribute("id") == "drinks") {
-        document.getElementById("drinkChoice").setAttribute("value", value);
+        document.getElementById("drkPlaceholder").setAttribute("value", value);
+        document.getElementById("drinkChoice").setAttribute("value", keyword);
     } else if (dish.parentElement.getAttribute("id") == "salads") {
-        document.getElementById("saladChoice").setAttribute("value", value);
+        document.getElementById("sldPlaceholder").setAttribute("value", value);
+        document.getElementById("saladChoice").setAttribute("value", keyword);
     } else if (dish.parentElement.getAttribute("id") == "desserts") {
-        document.getElementById("dessertChoice").setAttribute("value", value);
+        document.getElementById("dsrtPlaceholder").setAttribute("value", value);
+        document.getElementById("dessertChoice").setAttribute("value", keyword);
     }
 };
 
@@ -460,7 +466,7 @@ document.querySelector(".orderForm").addEventListener("submit", function(e) {
     } else if (soupChoice && !mainChoice) {
         displayModal("Выберите главное блюдо/салат/стартер");
         return false;
-    } else if (sldChoice && (!mainChoice || !soupChoice)) {
+    } else if (sldChoice && (!mainChoice && !soupChoice)) {
         displayModal("Выберите суп или главное блюдо");
         return false;
     } else if (!mainChoice && (drkChoice || dsrtChoice)) {

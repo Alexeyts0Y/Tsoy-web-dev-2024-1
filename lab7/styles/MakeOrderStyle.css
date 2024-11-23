@@ -159,6 +159,10 @@ a:active {
     width: 100%;
 }
 
+.dish-card p {
+    overflow-wrap: break-word;
+}
+
 .dish-card:hover {
     border: 2px solid tomato;
 }
@@ -217,7 +221,7 @@ section {
 
 form {
     display: flex;
-    gap: 150px;
+    gap: 100px;
 }
 
 form p {
@@ -261,13 +265,8 @@ fieldset div {
     flex-direction: row;
 }
 
-select {
-    max-width: 250px;
-    height: 30px;
-}
-
 input {
-    max-width: 250px;
+    max-width: 350px;
     padding: 0;
 }
 
