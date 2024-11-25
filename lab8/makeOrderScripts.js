@@ -1,6 +1,5 @@
 "use strict";
 
-import { render } from "react-dom";
 import { getDishById, createOrder } from "./dishesApi.js";
 
 const modal = document.getElementById("modal");
@@ -396,6 +395,7 @@ document.querySelector(".orderForm")
                 body: orderData
             });
             resetAll();
+            removeDishCard();
             renderDishes();
             console.log(response);
         } catch (err) {

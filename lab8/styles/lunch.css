@@ -314,6 +314,12 @@ footer {
     justify-content: center;
 }
 
+.linkToOrder {
+    pointer-events: none;
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
 .okayBtn {
     transition: 0.2s all;
     width: 125px;

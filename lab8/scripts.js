@@ -197,6 +197,14 @@ function showPanel() {
     window.className = "goToOrder active";
 }
 
+function displayModal(text) {
+    const window = document.getElementById("window");
+    const p = window.querySelector(".text");
+    
+    p.textContent = text;
+    modal.className = "modal active";
+}
+
 function chooseDish(dish) {
     const dishName = dish.querySelector(".dish_name").textContent;
     const dishPrice = dish.querySelector(".price").textContent;
@@ -231,6 +239,30 @@ function highlightFilter(target, selected) {
     target.style.backgroundColor = "lightblue";
 }
 
+document.getElementById("linkToOrder").onclick = function checkConditions(e) {
+    if (!soupChoice && !mainChoice && !sldChoice && !drkChoice && !dsrtChoice) {
+        e.preventDefault();
+        displayModal("Ничего не выбрано. Выберите блюда для заказа");
+        return false;
+    } else if ((soupChoice || mainChoice || sldChoice) && !drkChoice) {
+        e.preventDefault();
+        displayModal("Выберите напиток");
+        return false;
+    } else if (soupChoice && !mainChoice) {
+        e.preventDefault();
+        displayModal("Выберите главное блюдо/салат/стартер");
+        return false;
+    } else if (sldChoice && (!mainChoice && !soupChoice)) {
+        e.preventDefault();
+        displayModal("Выберите суп или главное блюдо");
+        return false;
+    } else if (!mainChoice && (drkChoice || dsrtChoice)) {
+        e.preventDefault();
+        displayModal("Выберите главное блюдо");
+        return false;
+    }
+};
+
 dishSoupsCards.onclick = function(event) {
     let target = event.target;
   
@@ -244,7 +276,6 @@ dishSoupsCards.onclick = function(event) {
     showPanel();
     chooseDish(dishCard);
     countPrice();
-    console.log(dishes);
 };
 
 dishMainCards.onclick = function(event) {
@@ -417,4 +448,10 @@ dessertFilters.onclick = function(event) {
     highlightFilter(target, dsrtChoiceFilter);
     dsrtChoiceFilter = target;
     filterDishes(cards, dsrtChoiceFilter);
+};
+
+const okayBtn = document.querySelector(".okayBtn");
+
+okayBtn.onclick = function() {
+    modal.className = "modal";
 };
