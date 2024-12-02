@@ -394,12 +394,14 @@ document.querySelector(".orderForm")
             const response = await createOrder({
                 body: orderData
             });
+            if (!response.ok) {
+                throw new Error("Error creating order");
+            }
             resetAll();
             removeDishCard();
             renderDishes();
-            console.log(response);
         } catch (err) {
-            console.error('Error creating order:', err);
+            console.error(err);
         }
     });
 
