@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Food Construct</title>
+        <link rel="stylesheet" href="../styles/make-order.css" />
+    </head>
+    <script type="module" src="../scripts/dishesApi.js"></script>
+    <body>
+        <header>
+            <h1>Food Construct</h1>
+
+            <div class="navbar">
+                <nav>
+                    <ul>
+                        <li><a href="../pages/index.html">О нас</a></li>
+                        <li><a href="../pages/lunch.html">Собрать ланч</a></li>
+                        <li><a href="../pages/make-order.html">Оформить заказ</a></li>
+                        <li><a href="../pages/orders.html">Заказы</a></li>
+                        <li><a href="#">Контакты</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <div class="container">
+                <section>
+                    <div class="dishes" id="dishes">
+
+                        <h2>Состав заказа</h2>
+
+                        <div class="nothingChosenLabel1">Ничего не выбрано. Чтобы добавить блюда в заказ, перейдите на страницу <a href="../pages/lunch.html">Собрать ланч</a></div>
+
+                        <div class="dish-block" id="dish-block"></div>
+
+                        <div class="make-order">
+                            <h2>Оформление заказа</h2>
+                            <form class="orderForm" action="https://httpbin.org/post" method="POST">
+                                <div class="orderPart">
+                                    <h3>Ваш заказ</h3>
+                                    <h3 class="nothingChosenLabel2">Ничего не выбрано</h3>
+                                    <div class="chosenDishes" id="chosenDishes">
+                                        <div>
+                                            <label for="soupPlaceholder">Суп</label>
+                                            <input type="text" name="soupPlaceholder" id="soupPlaceholder" placeholder="Блюдо не выбрано" disabled>
+                                            <input type="hidden" name="soup_id" id="soup_id" required>
+                                        </div>
+                                        
+                                        <div>
+                                            <label for="mainPlaceholder">Главное блюдо</label>
+                                            <input type="text" name="mainPlaceholder" id="mainPlaceholder" placeholder="Блюдо не выбрано" disabled>
+                                            <input type="hidden" name="main_course_id" id="main_course_id" required>
+                                        </div>
+                                        
+                                        <div>
+                                            <label for="sldPlaceholder">Салат или стартер</label>
+                                            <input type="text" name="sldPlaceholder" id="sldPlaceholder" placeholder="Салат или стартер не выбран" disabled>
+                                            <input type="hidden" name="salad_id" id="salad_id" required>
+                                        </div>
+
+                                        <div>
+                                            <label for="drkPlaceholder">Напиток</label>
+                                            <input type="text" name="drkPlaceholder" id="drkPlaceholder" placeholder="Напиток не выбран" disabled>
+                                            <input type="hidden" name="drink_id" id="drink_id" placeholder="Напиток не выбран" required>
+                                        </div>
+                                        
+                                        <div>
+                                            <label for="dsrtPlaceholder">Десерт</label>
+                                            <input type="text" name="dsrtPlaceholder" id="dsrtPlaceholder" placeholder="Десерт не выбран" disabled>
+                                            <input type="hidden" name="dessert_id" id="dessert_id" placeholder="Десерт не выбран" required>
+                                        </div>
+
+                                        <div>
+                                            <h3>Стоимость заказа</h3>
+                                            <h3 class="fullPrice"></h3>
+                                        </div>
+                                    </div>
+            
+                                    <div>
+                                        <label for="comment">Комментарии к заказу</label>
+                                        <textarea name="comment" id="comment"></textarea>
+                                    </div>
+                                </div>
+            
+                                <div class="userDataPart">
+                                    <h3>Ваши данные</h3>
+                                    <div>
+                                        <label for="full_name">Имя</label>
+                                        <input type="text" name="full_name" id="full_name" required>
+                                    </div>
+                                    
+                                    <div>
+                                        <label for="email">Email</label>
+                                        <input type="email" name="email" id="email" required>
+                                    </div>
+            
+                                    <div class="broadcastDiv">
+                                        <input type="checkbox" name="subscribe" id="subscribe" value="true" checked>
+                                        <label for="subscribe">Получать информацию о скидках и акциях</label>
+                                    </div>
+            
+                                    <div>
+                                        <label for="phone">Номер телефона</label>
+                                        <input type="tel" name="phone" id="phone" required>
+                                    </div>
+            
+                                    <div>
+                                        <label for="delivery_address">Адрес доставки</label>
+                                        <input type="text" name="delivery_address" id="delivery_address" required>
+                                        <p>Доставка осуществляется только по Москве</p>
+                                    </div>
+            
+                                    <div>
+                                        <fieldset>
+                                            <legend>Время доставки</legend>
+                                            <div>
+                                                <input type="radio" name="delivery_type" id="fast" value="now" required>
+                                                <label for="fast">Как можно скорее</label>
+                                            </div>
+                                            
+                                            <div>
+                                                <input type="radio" name="delivery_type" id="inTime" value="by_time" required>
+                                                <label for="inTime">К указанному времени</label>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+            
+                                    <div>
+                                        <label for="delivery_time">Укажите время доставки</label>
+                                        <input type="time" name="delivery_time" id="delivery_time" min="7:00" max="23:00" step="300">
+                                        <p>Доступное время доставки с 7:00 до 23:00</p>
+                                    </div>
+            
+                                    <div class="buttons">
+                                        <div>
+                                            <button type="reset" id="reset">Сбросить</button>
+                                        </div>
+            
+                                        <div>
+                                            <button type="submit" id="submitBtn">Отправить</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+        <div class="modal" id="modal">
+            <div class="window" id="window">
+                <p class="text"></p>
+                <button class="okayBtn">Окей &#128076;</button>
+            </div>
+        </div>
+        <footer>
+            <p>Позвонить нам +7-000-000-00-00</p>
+        </footer>
+    </body>
+    <script type="module" src="../scripts/makeOrderScripts.js"></script>
+</html>

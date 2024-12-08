@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../styles/orders.css">
+        <title>Заказы</title>
+    </head>
+    <body>
+        <header>
+            <h1>Food Construct</h1>
+
+            <div class="navbar">
+                <nav>
+                    <ul>
+                        <li><a href="../pages/index.html">О нас</a></li>
+                        <li><a href="../pages/lunch.html">Собрать ланч</a></li>
+                        <li><a href="../pages/make-order.html">Оформить заказ</a></li>
+                        <li><a href="#">Заказы</a></li>
+                        <li><a href="#">Контакты</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <main>
+            <div class="container">
+                <section>
+                    <h2>История заказов</h2>
+                    <div class="options">          
+                        <p class="number">№</p>
+                        <p class="date">Дата оформления</p>
+                        <p class="compound">Состав заказа</p>
+                        <p class="price">Стоимость</p>
+                        <p class="time">Время доставки</p>
+                        <p class="actions">Действия</p>
+                    </div>
+                    <div class="ordersContainer"></div>
+                </section>
+            </div>
+        </main>
+        <div class="modal" id="modal">
+            <div class="window" id="window">
+                <div class="labelHead">
+                    <h2></h2><button class="closeBtn">✖</button>
+                </div>
+                <div class="content" id="content"></div>
+                <div class="confirmDeleting" id="confirmDeleting"></div>
+                <form class="changeData" id="changeData"></form>
+                <div class="labelBottom">
+                    <button class="okayBtn">ОК</button>
+                    <button class="cancelBtn">Отмена</button>
+                    <button class="saveBtn">Сохранить</button>
+                    <button class="yesBtn">Да</button>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <p>Позвонить нам +7-000-000-00-00</p>
+        </footer>
+    </body>
+    <script type="module" src="../scripts/ordersScripts.js"></script>
+</html>
