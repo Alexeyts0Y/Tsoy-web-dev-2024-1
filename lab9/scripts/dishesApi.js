@@ -61,7 +61,7 @@ export async function createOrder(options) {
 
     return fetch(url, requestOptions)
         .then(response => {
-            return response.json();
+            return response;
         })
         .catch(err => {
             console.log("Не удалось создать заказ: ", err);
@@ -77,7 +77,7 @@ export async function changeOrder(id, options) {
 
     return fetch(url, requestOptions)
         .then(response => {
-            return response.json();
+            return response;
         })
         .catch(err => {
             console.log("Не удалось изменить заказ: ", err);
@@ -93,7 +93,7 @@ export async function deleteOrder(id) {
     
     return fetch(url, options)
         .then(response => {
-            return response.json();
+            return response;
         })
         .catch(err => {
             console.log("Не удалось удалить заказ: ", err);

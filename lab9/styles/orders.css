@@ -354,6 +354,10 @@ footer {
         "totalPrice totalPrice";
 }
 
+.ordersContainer {
+    margin-bottom: 50px;
+}
+
 .delivery {
     grid-area: delivery; 
 }

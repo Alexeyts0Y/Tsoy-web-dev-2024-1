@@ -248,15 +248,16 @@ document.getElementById("linkToOrder").onclick = function checkConditions(e) {
         e.preventDefault();
         displayModal("Выберите напиток");
         return false;
-    } else if (soupChoice && !mainChoice) {
+    } else if (soupChoice && !mainChoice && !sldChoice) {
         e.preventDefault();
         displayModal("Выберите главное блюдо/салат/стартер");
         return false;
-    } else if (sldChoice && (!mainChoice && !soupChoice)) {
+    } else if (sldChoice && !soupChoice && !mainChoice) {
         e.preventDefault();
         displayModal("Выберите суп или главное блюдо");
         return false;
-    } else if (!mainChoice && (drkChoice || dsrtChoice)) {
+    } else if ((drkChoice || dsrtChoice) && !soupChoice && 
+        !mainChoice && !sldChoice) {
         e.preventDefault();
         displayModal("Выберите главное блюдо");
         return false;

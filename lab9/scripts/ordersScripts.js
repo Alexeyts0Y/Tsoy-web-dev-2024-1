@@ -72,7 +72,6 @@ async function createAndFillOrderElement(order, index) { //correct
             </button>
         </div>
     `;
-    console.log(orderElement);
     return orderElement;
 }
 
@@ -265,7 +264,6 @@ ordersContainer.onclick = async function(e) {
     const order = target.parentElement.parentElement;
 
     if (target.classList.contains("detailsBtn")) {
-        console.log("clicked");
         await createAndDisplayDetails(order.dataset.id);
         displayModal();
     } else if (target.className == "editBtn") {
@@ -296,10 +294,8 @@ saveBtn.onclick = async function() {
     await changeOrder(form.dataset.orderid, {
         body: formData
     });
-    
     displayModal();
     displayAllOrders();
-
 };
 
 yesBtn.onclick = async function () {

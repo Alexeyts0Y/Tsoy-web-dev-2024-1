@@ -311,17 +311,19 @@ dishCards.onclick = function(event) {
     countPrice();
 };
 
-resetButton.onclick = function() {
-    soupChoice = undefined;
-    mainChoice = undefined;
-    drkChoice = undefined;
-    sldChoice = undefined;
-    dsrtChoice = undefined;
-
-    countPrice();
-};
-
 function resetAll() {
+    document.getElementById("soupPlaceholder").value = "";
+    document.getElementById("mainPlaceholder").value = "";
+    document.getElementById("sldPlaceholder").value = "";
+    document.getElementById("drkPlaceholder").value = "";
+    document.getElementById("comment").textContent = "";
+    
+    document.getElementById("full_name").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("phone").value = "";
+    document.getElementById("delivery_time").value = "";
+    document.getElementById("delivery_address").value = "";
+
     soupChoice = undefined;
     mainChoice = undefined;
     drkChoice = undefined;
@@ -330,6 +332,17 @@ function resetAll() {
     window.localStorage.clear();
     dishes = [];
 }
+
+resetButton.onclick = function() {
+    soupChoice = undefined;
+    mainChoice = undefined;
+    drkChoice = undefined;
+    sldChoice = undefined;
+    dsrtChoice = undefined;
+    resetAll();
+    renderDishes();
+    countPrice();
+};
 
 function displayModal(text) {
     const window = document.getElementById("window");
@@ -353,24 +366,17 @@ document.querySelector(".orderForm")
             !drkChoice && !dsrtChoice) {
             displayModal("Ничего не выбрано. Выберите блюда для заказа");
             return false;
-        }
-
-        if ((soupChoice || mainChoice || sldChoice) && !drkChoice) {
+        } else if ((soupChoice || mainChoice || sldChoice) && !drkChoice) {
             displayModal("Выберите напиток");
             return false;
-        }
-
-        if (soupChoice && !mainChoice) {
+        } else if (soupChoice && !mainChoice && !sldChoice) {
             displayModal("Выберите главное блюдо/салат/стартер");
             return false;
-        }
-
-        if (sldChoice && (!mainChoice && !soupChoice)) {
+        } else if (sldChoice && !soupChoice && !mainChoice) {
             displayModal("Выберите суп или главное блюдо");
             return false;
-        }
-
-        if (!mainChoice && (drkChoice || dsrtChoice)) {
+        } else if ((drkChoice || dsrtChoice) && !soupChoice && 
+        !mainChoice && !sldChoice) {
             displayModal("Выберите главное блюдо");
             return false;
         }
@@ -379,8 +385,8 @@ document.querySelector(".orderForm")
         const response = await createOrder({
             body: formData
         });
-        if (!response) {
-            throw new Error("Ошибка создания заказа");
+        if (!response.ok) {
+            throw new Error("Error creating order");
         }
         resetAll();
         renderDishes();
