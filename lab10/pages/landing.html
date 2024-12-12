@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+    <html lang="en" class="v-100">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="../styles/landing.css">
+        <title>Food Construct</title>
+    </head>
+    <body class="d-flex flex-column m-0 p-0 h-100 w-100">
+        <header>
+            <div class="navbar">
+                <nav>
+                    <ul>
+                        <li><a href="../pages/index.html">О нас</a></li>
+                        <li><a href="../pages/lunch.html">Собрать ланч</a></li>
+                        <li><a href="../pages/make-order.html">Оформить заказ</a></li>
+                        <li><a href="../pages/orders.html">Заказы</a></li>
+                        <li><a href="../pages/landing.html">Контакты</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <h1><a href="../pages/index.html">Food Construct</a></h1>
+        </header>
+        <main class="flex-grow-1">
+            <section>
+                <div class="gridContainer">
+                    <div class="description">
+                        <h2>Food Construct</h2>
+                        <div class="shortDescription">
+                            Доставка вкусной еды за 30 минут! Большой выбор блюд, свежие ингредиенты, акции и скидки. Закажите прямо сейчас и наслаждайтесь лучшими вкусами у себя дома!
+                        </div>
+                        <div>
+                            <h4>Закажите прямо сейчас!</h4>
+                            <div class="makeOrderBtn"><a href="../pages/lunch.html">Сделать заказ</a></div>
+                        </div>
+                    </div>
+                    <div><img src="../img/image_2024-12-12_13-29-26.png"></div>
+                </div>
+                <div class="benefits">
+                    <div class="benefitsList">
+                        <div class="reasonLabel">
+                            <h2>Почему выбирают нас?</h2>
+                        </div>
+                        <div class="reasonList">
+                            <div class="reason">
+                                <img class="benefitIcon" src="../img/icons/time.png">
+                                <h5>Быстрая доставка</h5>
+                                <div>
+                                    Мы понимаем, что время — деньги. Наша служба доставки работает как часы, чтобы вы могли наслаждаться вкусной едой в кратчайшие сроки. Если доставка займет больше времени, мы сделаем её бесплатно!
+                                </div>
+                            </div>
+                            <div class="reason">
+                                <img class="benefitIcon" src="../img/icons/fresh.png">
+                                <h5>Свежие продукты</h5>
+                                <div>
+                                    Мы тщательно отбираем поставщиков, чтобы каждый ингредиент был максимально свежим. Наши повара готовят блюда сразу после заказа, чтобы вы могли наслаждаться их максимальной свежестью.
+                                </div>
+                            </div>
+                            <div class="reason">
+                                <img class="benefitIcon" src="../img/icons/diversity.png">
+                                <h5>Широкий выбор</h5>
+                                <div>
+                                    У нас есть всё, что вам нужно: от классических блюд до экзотических вкусов. Вы можете выбрать пиццу, суши, бургеры, салаты, десерты и напитки.
+                                </div>
+                            </div>
+                            <div class="reason">
+                                <img class="benefitIcon" src="../img/icons/quality.png">
+                                <h5>Высокое качество обслуживания</h5>
+                                <div>
+                                    Наша служба поддержки работает круглосуточно. Если у вас есть вопросы или проблемы, мы всегда готовы помочь.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="formSection">
+                    <div class="formSectionLabel">
+                        <h3>Есть вопросы? Напишите нам!</h3>
+                        <p>Мы всегда рады помочь. Заполните форму ниже, и наш менеджер свяжется с вами в ближайшее время.</p>
+                    </div>
+                    <form class="feedbackForm">
+                        <label for="name">Имя:</label>
+                        <input type="text" id="name" name="name" required>
+                    
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    
+                        <label for="subject">Тема сообщения:</label>
+                        <select id="subject" name="subject" required>
+                            <option value="delivery">Вопрос по доставке</option>
+                            <option value="menu">Предложение по меню</option>
+                            <option value="tech">Техническая проблема</option>
+                            <option value="other">Другое</option>
+                        </select>
+                    
+                        <label for="message">Сообщение:</label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
+                    
+                        <label>
+                            <input type="checkbox" name="subscribe"> Подписаться на новости и акции
+                        </label>
+                    
+                        <button type="submit">Отправить сообщение</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>Позвонить нам +7-000-000-00-00</p>
+        </footer>
+    </body>
+</html>

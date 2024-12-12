@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Food Construct</title>
+        <link rel="stylesheet" href="../styles/lunch.css" />
+    </head>
+    <script type="module" src="../scripts/dishesApi.js"></script>
+    <body>
+        <header>
+            <h1>Food Construct</h1>
+
+            <div class="navbar">
+                <nav>
+                    <ul>
+                        <li><a href="../pages/index.html">О нас</a></li>
+                        <li><a href="../pages/lunch.html">Собрать ланч</a></li>
+                        <li><a href="../pages/make-order.html">Оформить заказ</a></li>
+                        <li><a href="../pages/orders.html">Заказы</a></li>
+                        <li><a href="../pages/landing.html">Контакты</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <div class="container">
+                <section>
+                    <h2>Доступные для заказа комбо</h2>
+                    <div class="combos">
+                        <div class="combo">
+                            <div>
+                                <figure>
+                                    <img src="../img/icons/soup.png" alt="">
+                                </figure>
+                                <p>Суп</p>
+                            </div>
+                            <div>
+                                <figure>
+                                    <img src="../img/icons/main.png" alt="">
+                                </figure>
+                                <p>Главное блюдо</p>
+                            </div>
+                            <div>
+                                <figure>
+                                    <img src="../img/icons/salad.png" alt="">
+                                </figure>
+                                <p>Салат</p>
+                            </div>
+                            <div>
+                                <figure>
+                                    <img src="../img/icons/drink.png" alt="">
+                                </figure>
+                                <p>Напиток</p>
+                            </div>
+                        </div>
+                        <div class="combo">
+                            <div>
+                                <figure>
+                                    <img src="../img/icons/soup.png" alt="">
+                                </figure>
+                                <p>Суп</p>
+                            </div>
+                            <div>
+                                <figure>
+                                    <img src="../img/icons/main.png" alt="">
+                                </figure>
+                                <p>Главное блюдо</p>
+                            </div>
+                            <div>
+                                <figure>
+                                    <img src="../img/icons/drink.png" alt="">
+                                </figure>
+                                <p>Напиток</p>
+                            </div>
+                        </div>
+                        <div class="combo">
+                            <div>
+                                <figure>
+                                    <img src="../img/icons/soup.png" alt="">
+                                </figure>
+                                <p>Суп</p>
+                            </div>
+                            <div>
+                                <figure>
+                                    <img src="../img/icons/salad.png" alt="">
+                                </figure>
+                                <p>Салат</p>
+                            </div>
+                            <div>
+                                <figure>
+                                    <img src="../img/icons/drink.png" alt="">
+                                </figure>
+                                <p>Напиток</p>
+                            </div>
+                        </div>
+                        <div class="combo">
+                            <div>
+                                <figure>
+                                    <img src="../img/icons/main.png" alt="">
+                                </figure>
+                                <p>Главное блюдо</p>
+                            </div>
+                            <div>
+                                <figure>
+                                    <img src="../img/icons/salad.png" alt="">
+                                </figure>
+                                <p>Салат</p>
+                            </div>
+                            <div>
+                                <figure>
+                                    <img src="../img/icons/drink.png" alt="">
+                                </figure>
+                                <p>Напиток</p>
+                            </div>
+                        </div>
+                        <div class="combo">
+                            <div>
+                                <figure>
+                                    <img src="../img/icons/main.png" alt="">
+                                </figure>
+                                <p>Главное блюдо</p>
+                            </div>
+                            <div>
+                                <figure>
+                                    <img src="../img/icons/drink.png" alt="">
+                                </figure>
+                                <p>Напиток</p>
+                            </div>
+                        </div>
+                        <div class="combo">
+                            <div>
+                                <figure>
+                                    <img src="../img/icons/desert.png" alt="">
+                                </figure>
+                                <p>Десерт</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="dishes" id="dishes">
+
+                        <h2>Выберите суп</h2>
+
+                        <div class="filters" id="soupFilters">
+                            <button class="filterButton" data-kind="fish">рыбный</button>
+                            <button class="filterButton" data-kind="meat">мясной</button>
+                            <button class="filterButton" data-kind="veg">вегетарианский</button>
+                        </div>
+
+                        <div class="dish-block" id="soupes"></div>
+
+                        <h2>Выберите главное блюдо</h2>
+
+                        <div class="filters" id="mainFilters">
+                            <button class="filterButton" data-kind="fish">рыбное</button>
+                            <button class="filterButton" data-kind="meat">мясное</button>
+                            <button class="filterButton" data-kind="veg">вегетарианское</button>
+                        </div>
+
+                        <div class="dish-block" id="main"></div>
+
+                        <h2>Выберите салат или стартер</h2>
+
+                        <div class="filters" id="saladFilters">
+                            <button class="filterButton" data-kind="fish">рыбный</button>
+                            <button class="filterButton" data-kind="meat">мясной</button>
+                            <button class="filterButton" data-kind="veg">вегетарианский</button>
+                        </div>
+
+                        <div class="dish-block" id="salads"></div>
+
+                        <h2>Выберите напиток</h2>
+
+                        <div class="filters" id="drinkFilters">
+                            <button class="filterButton" data-kind="cold">холодный</button>
+                            <button class="filterButton" data-kind="hot">горячий</button>
+                        </div>
+
+                        <div class="dish-block" id="drinks"></div>
+
+                        <h2>Выберите десерт</h2>
+
+                        <div class="filters" id="dessertFilters">
+                            <button class="filterButton" data-kind="small">маленькая порция</button>
+                            <button class="filterButton" data-kind="medium">средняя порция</button>
+                            <button class="filterButton" data-kind="large">большая порция</button>
+                        </div>
+
+                        <div class="dish-block" id="desserts"></div>
+
+                        <div>
+                            <input type="hidden" name="soupPlaceholder" id="soupPlaceholder">
+                            
+                            <input type="hidden" name="mainPlaceholder" id="mainPlaceholder">
+
+                            <input type="hidden" name="sldPlaceholder" id="sldPlaceholder">
+                            
+                            <input type="hidden" name="drkPlaceholder" id="drkPlaceholder">
+                            
+                            <input type="hidden" name="dsrtPlaceholder" id="dsrtPlaceholder">
+                        </div>
+                        
+                    </div>
+                </section>
+            </div>
+            <div class="goToOrder" id="goToOrder">
+                <div class="priceAndLabel">
+                    <h3>Итого: </h3>
+                    <h3 class="fullPrice"></h3>
+                </div>
+                <a id="linkToOrder" href="../pages/make-order.html">
+                    <div class="goToOrderBtn">Перейти к оформлению</div>
+                </a>
+            </div>
+        </main>
+        <div class="modal" id="modal">
+            <div class="window" id="window">
+                <p class="text"></p>
+                <button class="okayBtn">Окей &#128076;</button>
+            </div>
+        </div>
+        <footer>
+            <p>Позвонить нам +7-000-000-00-00</p>
+        </footer>
+    </body>
+    <script type="module" src="../scripts/scripts.js"></script>
+</html>
