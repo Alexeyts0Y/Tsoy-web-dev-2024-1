@@ -8,78 +8,84 @@
         <title>Food Construct</title>
     </head>
     <body class="d-flex flex-column m-0 p-0 h-100 w-100">
-        <header>
-            <div class="navbar">
+        <header class="d-flex justify-content-between">
+            <div class="p-0 my-4 mx-5">
                 <nav>
-                    <ul>
-                        <li><a href="../pages/index.html">О нас</a></li>
-                        <li><a href="../pages/lunch.html">Собрать ланч</a></li>
-                        <li><a href="../pages/make-order.html">Оформить заказ</a></li>
-                        <li><a href="../pages/orders.html">Заказы</a></li>
-                        <li><a href="../pages/landing.html">Контакты</a></li>
+                    <ul class="d-flex m-0 p-0 list-unstyled text-decoration-none gap-3">
+                        <li><a href="../pages/index.html" class="link-light text-decoration-none">О нас</a></li>
+                        <li><a href="../pages/lunch.html" class="link-light text-decoration-none">Собрать ланч</a></li>
+                        <li><a href="../pages/make-order.html" class="link-light text-decoration-none">Оформить заказ</a></li>
+                        <li><a href="../pages/orders.html" class="link-light text-decoration-none">Заказы</a></li>
+                        <li><a href="../pages/landing.html" class="link-light text-decoration-none">Контакты</a></li>
                     </ul>
                 </nav>
             </div>
-            <h1><a href="../pages/index.html">Food Construct</a></h1>
+            <h1 class="align-self-center mx-5"><a href="../pages/index.html" class="link-light text-decoration-none">Food Construct</a></h1>
         </header>
         <main class="flex-grow-1">
             <section>
-                <div class="gridContainer">
-                    <div class="description">
-                        <h2>Food Construct</h2>
-                        <div class="shortDescription">
-                            Доставка вкусной еды за 30 минут! Большой выбор блюд, свежие ингредиенты, акции и скидки. Закажите прямо сейчас и наслаждайтесь лучшими вкусами у себя дома!
+                <div class="container m-0 p-0 bg-dark">
+                    <div class="row w-100">
+                        <div class="col-6 p-0 d-flex justify-content-center align-items-center flex-column">
+                            <div class="d-flex flex-column gap-3 description">
+                                <h2 class="text-light">Food Construct</h2>
+                                <div class="shortDescription text-light">
+                                    Доставка вкусной еды за 30 минут! Большой выбор блюд, свежие ингредиенты, акции и скидки. Закажите прямо сейчас и наслаждайтесь лучшими вкусами у себя дома!
+                                </div>
+                                <div>
+                                    <h4 class="fw-normal text-light">Закажите прямо сейчас!</h4>
+                                    <div class="text-center makeOrderBtn"><a href="../pages/lunch.html" class="link-light text-decoration-none">Сделать заказ</a></div>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <h4>Закажите прямо сейчас!</h4>
-                            <div class="makeOrderBtn"><a href="../pages/lunch.html">Сделать заказ</a></div>
-                        </div>
+                        <div class="col-6 p-0"><img class="w-100 h-100" src="../img/image_2024-12-12_13-29-26.png"></div>
                     </div>
-                    <div><img src="../img/image_2024-12-12_13-29-26.png"></div>
                 </div>
                 <div class="benefits">
-                    <div class="benefitsList">
-                        <div class="reasonLabel">
+                    <div class="d-flex justify-content-center flex-column gap-4 h-100">
+                        <div class="d-flex justify-content-center w-100">
                             <h2>Почему выбирают нас?</h2>
                         </div>
-                        <div class="reasonList">
-                            <div class="reason">
-                                <img class="benefitIcon" src="../img/icons/time.png">
-                                <h5>Быстрая доставка</h5>
-                                <div>
-                                    Мы понимаем, что время — деньги. Наша служба доставки работает как часы, чтобы вы могли наслаждаться вкусной едой в кратчайшие сроки. Если доставка займет больше времени, мы сделаем её бесплатно!
+                        <div class="container d-flex justify-content-center">
+                            <div class="row gap-3 w-100 justify-content-center"> 
+                                <div class="col d-flex flex-column align-items-center gap-2 bg-white rounded-3 px-4 py-3 reason">
+                                    <img class="benefitIcon" src="../img/icons/time.png">
+                                    <h5>Быстрая доставка</h5>
+                                    <div>
+                                        Мы понимаем, что время — деньги. Наша служба доставки работает как часы, чтобы вы могли наслаждаться вкусной едой в кратчайшие сроки. Если доставка займет больше времени, мы сделаем её бесплатно!
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="reason">
-                                <img class="benefitIcon" src="../img/icons/fresh.png">
-                                <h5>Свежие продукты</h5>
-                                <div>
-                                    Мы тщательно отбираем поставщиков, чтобы каждый ингредиент был максимально свежим. Наши повара готовят блюда сразу после заказа, чтобы вы могли наслаждаться их максимальной свежестью.
+                                <div class="col d-flex flex-column align-items-center gap-2 bg-white rounded-3 px-4 py-3 reason">
+                                    <img class="benefitIcon" src="../img/icons/fresh.png">
+                                    <h5>Свежие продукты</h5>
+                                    <div>
+                                        Мы тщательно отбираем поставщиков, чтобы каждый ингредиент был максимально свежим. Наши повара готовят блюда сразу после заказа, чтобы вы могли наслаждаться их максимальной свежестью.
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="reason">
-                                <img class="benefitIcon" src="../img/icons/diversity.png">
-                                <h5>Широкий выбор</h5>
-                                <div>
-                                    У нас есть всё, что вам нужно: от классических блюд до экзотических вкусов. Вы можете выбрать пиццу, суши, бургеры, салаты, десерты и напитки.
+                                <div class="col d-flex flex-column align-items-center gap-2 bg-white rounded-3 px-4 py-3 reason">
+                                    <img class="benefitIcon" src="../img/icons/diversity.png">
+                                    <h5>Широкий выбор</h5>
+                                    <div>
+                                        У нас есть всё, что вам нужно: от классических блюд до экзотических вкусов. Вы можете выбрать пиццу, суши, бургеры, салаты, десерты и напитки.
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="reason">
-                                <img class="benefitIcon" src="../img/icons/quality.png">
-                                <h5>Высокое качество обслуживания</h5>
-                                <div>
-                                    Наша служба поддержки работает круглосуточно. Если у вас есть вопросы или проблемы, мы всегда готовы помочь.
+                                <div class="col d-flex flex-column align-items-center gap-2 bg-white rounded-3 px-4 py-3 reason">
+                                    <img class="benefitIcon" src="../img/icons/quality.png">
+                                    <h5>Высокое качество обслуживания</h5>
+                                    <div>
+                                        Наша служба поддержки работает круглосуточно. Если у вас есть вопросы или проблемы, мы всегда готовы помочь.
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="formSection">
-                    <div class="formSectionLabel">
-                        <h3>Есть вопросы? Напишите нам!</h3>
+                <div class="py-5 w-100 d-flex flex-column justify-content-center align-items-center formSection">
+                    <div class="text-light formSectionLabel">
+                        <h3 class="fw-normal">Есть вопросы? Напишите нам!</h3>
                         <p>Мы всегда рады помочь. Заполните форму ниже, и наш менеджер свяжется с вами в ближайшее время.</p>
                     </div>
-                    <form class="feedbackForm">
+                    <form class="d-flex gap-2 flex-column w-50 p-3 bg-white feedbackForm">
                         <label for="name">Имя:</label>
                         <input type="text" id="name" name="name" required>
                     
@@ -101,12 +107,12 @@
                             <input type="checkbox" name="subscribe"> Подписаться на новости и акции
                         </label>
                     
-                        <button type="submit">Отправить сообщение</button>
+                        <button class="border-0" type="submit">Отправить сообщение</button>
                     </form>
                 </div>
             </section>
         </main>
-        <footer>
+        <footer class="py-4 px-5 w-100">
             <p>Позвонить нам +7-000-000-00-00</p>
         </footer>
     </body>

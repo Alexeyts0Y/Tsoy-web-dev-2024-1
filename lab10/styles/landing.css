@@ -1,105 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=SUSE:wght@100..800&display=swap');
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-}
-
 body {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
     font-family: 'Roboto', 'Times New Roman';
-    font-weight: 500;
-}
-
-h2 {
-    width: fit-content;
-}
-
-h3, h4 {
-    font-weight: normal;
 }
 
 header {
     background-color: black;
-    display: flex;
-    justify-content: space-between;
 }
 
-header * {
-    margin: 0;
-}
-
-h1 {
-    height: fit-content;
-    align-self: center;
-    margin: 0 70px;
-}
-
-.navbar {
-    margin: 40px 70px;
-    padding: 0;
-}
-
-.navbar ul {
-    text-decoration: none;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 15px;
-}
-
-.navbar li {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin: 0;
-    padding: 0;
-    font-size: 500;
-}
-
-a {
-    transition: all 0.2s;
-    text-decoration: none;
-    color: white;
-}
-
-a:hover {
-    color: tomato;
-}
-
-a:active {
-    color: tomato;
-}
-
-main {
-    flex-grow: 1;
-}
-
-.gridContainer {
-    display: grid;
-    background-color: rgb(43, 31, 31);
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 100vh;
-    color: white;
-}
-
-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.description {
-    display: flex;
-    flex-direction: column;
-    place-self: center;
-    gap: 20px;
+.container {
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
 }
 
 .shortDescription {
@@ -111,7 +23,6 @@ img {
     border-radius: 15px;
     background-color: darkorange;
     width: 150px;
-    text-align: center;
 }
 
 .benefits {
@@ -120,71 +31,20 @@ img {
     height: 70vh;
 }
 
-.benefitsList {
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
-    height: 100%;
-}
-
-.reasonLabel {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
-.reason {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-    background-color: white;
-    padding: 20px 30px;
-    border-radius: 15px;
-    max-width: 300px;
-    height: 100%;
-    place-self: center;
-}
-
-.reasonList {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
-    grid-template-rows: auto;
-}
-
 .benefitIcon {
     width: 50px;
     height: 50px;
 }
 
 .formSection {
-    padding: 50px 0;
     background-color: rgb(43, 31, 31);
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.formSectionLabel {
-    color: white;
 }
 
 .feedbackForm {
-    padding: 20px 10px;
-    background-color: white;
     border-radius: 15px;
-    display: flex;
-    gap: 10px;
-    flex-direction: column;
-    width: 400px;
 }
 
 .feedbackForm button {
-    border: none;
     border-radius: 15px;
     background-color: darkorange;
 }
@@ -192,13 +52,12 @@ img {
 footer {
     background-color: black;
     color: white;
-    padding: 20px 70px;
-    width: 100%;
 }
 
 @media screen and (max-width: 800px) {
     .description {
         max-width: 200px;
+        padding: 20px 0;
     }
 
     h1 {
@@ -233,6 +92,7 @@ footer {
 
     .description {
         max-width: 200px;
+        padding: 20px 0;
     }
 
     .reasonList {
@@ -260,5 +120,11 @@ footer {
         flex-direction: column;
         align-items: center;
         justify-content: center;
+    }
+}
+
+@media (min-width: 992px) {
+    .reason {
+      max-width: 300px;
     }
 }
