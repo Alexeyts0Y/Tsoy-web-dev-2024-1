@@ -18,6 +18,10 @@ header {
     max-width: 500px;
 }
 
+.mainImg {
+    object-fit: cover;
+}
+
 .makeOrderBtn {
     padding: 5px 15px;
     border-radius: 15px;
