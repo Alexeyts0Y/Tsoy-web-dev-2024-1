@@ -2,12 +2,6 @@
 
 import { getAllDishes } from "./dishesApi.js";
 
-window.localStorage.setItem("soupId", "");
-window.localStorage.setItem("mainId", "");
-window.localStorage.setItem("drinkId", "");
-window.localStorage.setItem("saladId", "");
-window.localStorage.setItem("dessertId", "");
-
 let soupChoiceFilter;
 let mainChoiceFilter;
 let drkChoiceFilter;
@@ -39,6 +33,11 @@ const dishSaladsCards = document.getElementById("salads");
 const dishDessertsCards = document.getElementById("desserts");
 
 let dishes;
+
+function showPanel() {
+    const window = document.getElementById("goToOrder");
+    window.className = "goToOrder active";
+}
 
 function fillDishCard(dishCard, dishData) {
     dishCard.querySelector(".dish_img img").src = dishData.image;
@@ -78,50 +77,30 @@ function createDishCard() {
     return dishCard;
 }
 
-getAllDishes()
-    .then(responseDishes => {
-        dishes = responseDishes;
-        responseDishes.forEach((dish) => {
-            let dishCard = createDishCard();
+function highlightChosen() {
+    const keys = Object.keys(localStorage);
+    for (let i = 0; i < keys.length; i++) {
+        const key = keys[i];
+        const id = localStorage.getItem(key);
         
-            switch (dish.category) {
-            case "soup":
-                dishCard.setAttribute("data-dish", `${dish.keyword}`);
-                dishCard.setAttribute("data-id", `${dish.id}`);
-                fillDishCard(dishCard, dish);
-                dishSoupsCards.append(dishCard);
-                break;
+        if (!id || !Number(id)) continue;
         
-            case "main-course":
-                dishCard.setAttribute("data-dish", `${dish.keyword}`);
-                dishCard.setAttribute("data-id", `${dish.id}`);
-                fillDishCard(dishCard, dish);
-                dishMainCards.append(dishCard);
-                break;
+        const elem = document.querySelector(`[data-id="${id}"]`);
+        elem.style.border = "2px solid tomato";
         
-            case "salad":
-                dishCard.setAttribute("data-dish", `${dish.keyword}`);
-                dishCard.setAttribute("data-id", `${dish.id}`);
-                fillDishCard(dishCard, dish);
-                dishSaladsCards.append(dishCard);
-                break;
-            
-            case "drink":
-                dishCard.setAttribute("data-dish", `${dish.keyword}`);
-                dishCard.setAttribute("data-id", `${dish.id}`);
-                fillDishCard(dishCard, dish);
-                dishDrinksCards.append(dishCard);
-                break;
-        
-            case "dessert":
-                dishCard.setAttribute("data-dish", `${dish.keyword}`);
-                dishCard.setAttribute("data-id", `${dish.id}`);
-                fillDishCard(dishCard, dish);
-                dishDessertsCards.append(dishCard);
-                break;
-            }
-        });
-    });
+        if (key == "mainId") {
+            mainChoice = elem;
+        } else if (key == "soupId") {
+            soupChoice = elem;
+        } else if (key == "drinkId") {
+            drkChoice = elem;
+        } else if (key == "dessertId") {
+            dsrtChoice = elem;
+        } else if (key == "saladId") {
+            sldChoice = elem;
+        }
+    }
+}
 
 function toNumber(stringNumber) {
     let number = Number(stringNumber);
@@ -188,14 +167,66 @@ function countPrice() {
     price2ndPart = chosenSaladPrice + chosenDessertPrice;
 
     price = String(price1stPart + price2ndPart) + "₽";
+    window.localStorage.setItem("price", price);
 
     document.querySelector(".fullPrice").textContent = price;
 }
 
-function showPanel() {
-    const window = document.getElementById("goToOrder");
-    window.className = "goToOrder active";
-}
+getAllDishes()
+    .then(responseDishes => {
+        dishes = responseDishes;
+        responseDishes.forEach((dish) => {
+            let dishCard = createDishCard();
+        
+            switch (dish.category) {
+            case "soup":
+                dishCard.setAttribute("data-dish", `${dish.keyword}`);
+                dishCard.setAttribute("data-id", `${dish.id}`);
+                fillDishCard(dishCard, dish);
+                dishSoupsCards.append(dishCard);
+                break;
+        
+            case "main-course":
+                dishCard.setAttribute("data-dish", `${dish.keyword}`);
+                dishCard.setAttribute("data-id", `${dish.id}`);
+                fillDishCard(dishCard, dish);
+                dishMainCards.append(dishCard);
+                break;
+        
+            case "salad":
+                dishCard.setAttribute("data-dish", `${dish.keyword}`);
+                dishCard.setAttribute("data-id", `${dish.id}`);
+                fillDishCard(dishCard, dish);
+                dishSaladsCards.append(dishCard);
+                break;
+            
+            case "drink":
+                dishCard.setAttribute("data-dish", `${dish.keyword}`);
+                dishCard.setAttribute("data-id", `${dish.id}`);
+                fillDishCard(dishCard, dish);
+                dishDrinksCards.append(dishCard);
+                break;
+        
+            case "dessert":
+                dishCard.setAttribute("data-dish", `${dish.keyword}`);
+                dishCard.setAttribute("data-id", `${dish.id}`);
+                fillDishCard(dishCard, dish);
+                dishDessertsCards.append(dishCard);
+                break;
+            }
+        });
+        highlightChosen();
+        const soup = window.localStorage.getItem("soupId");
+        const main = window.localStorage.getItem("mainId");
+        const sld = window.localStorage.getItem("saladId");
+        const drk = window.localStorage.getItem("drinkId");
+        const dsrt = window.localStorage.getItem("dessertId");
+        if (soup || main || sld || drk || dsrt) {
+            const price = window.localStorage.getItem("price");
+            document.querySelector(".fullPrice").textContent = price;
+            showPanel();
+        }
+    });
 
 function displayModal(text) {
     const window = document.getElementById("window");

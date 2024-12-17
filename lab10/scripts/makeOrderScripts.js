@@ -4,11 +4,11 @@ import { getDishById, createOrder } from "../scripts/dishesApi.js";
 
 const modal = document.getElementById("modal");
 
-let soupChoice;
-let mainChoice;
-let drkChoice;
-let sldChoice;
-let dsrtChoice;
+let soupChoice = window.localStorage.getItem("soupId");
+let mainChoice = window.localStorage.getItem("mainId");
+let drkChoice = window.localStorage.getItem("drinkId");
+let sldChoice = window.localStorage.getItem("saladId");
+let dsrtChoice = window.localStorage.getItem("dessertId");
 
 const dishCards = document.getElementById("dish-block");
 
@@ -253,7 +253,7 @@ const promises = [];
 for (let i = 0; i < localStorageSize; i++) {
     let key = window.localStorage.key(i);
     let id = window.localStorage.getItem(key);
-    if (id == "") continue;    
+    if (id == "" || !Number(id)) continue;    
     promises.push(getDishById(id).then(data => {
         dishes.push(data);
     }));
