@@ -32,14 +32,13 @@ header {
 .benefits {
     color: black;
     background-color: darkorange;
-    height: 70vh;
+    height: 80vh;
 }
 
 .benefitIcon {
     width: 50px;
     height: 50px;
 }
-
 .formSection {
     background-color: rgb(43, 31, 31);
 }
@@ -64,14 +63,15 @@ footer {
         padding: 20px 0;
     }
 
-    h1 {
-        margin: 0;
-        margin-right: 30px;
+    header {
+        flex-direction: column;
+        padding: 30px 0;
     }
 
-    .reasonList {
-        grid-template-columns: 50% 50%;
-        grid-template-rows: auto;
+    h1 {
+        order: -1;
+        margin: 0;
+        margin-right: 30px;
     }
 
     .benefits {
@@ -81,6 +81,18 @@ footer {
 
     .formSectionLabel {
         max-width: 600px;
+    }
+
+    .navbar {
+        justify-content: center;
+        margin: 0;
+        padding: 10px 0;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 }
 
@@ -97,12 +109,6 @@ footer {
     .description {
         max-width: 200px;
         padding: 20px 0;
-    }
-
-    .reasonList {
-        grid-template-columns: 100%;
-        grid-template-rows: auto;
-        gap: 20px;
     }
 
     .benefits {
@@ -125,6 +131,11 @@ footer {
         align-items: center;
         justify-content: center;
     }
+    
+    .benefits {
+        padding: 20px 0;
+        height: fit-content;
+    }
 }
 
 @media (min-width: 992px) {
@@ -132,3 +143,21 @@ footer {
       max-width: 300px;
     }
 }
+
+@media (max-width: 767.98px) {
+    .reason {
+      margin-bottom: 20px; /* Отступ между карточками в столбце */
+    }
+  }
+  
+  @media (min-width: 768px) and (max-width: 1199.98px) {
+    .reason {
+      margin-bottom: 30px; /* Отступ между карточками в 2 на 2 */
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .reason {
+      margin-bottom: 0; /* Убираем отступы между карточками в ряд */
+    }
+  }

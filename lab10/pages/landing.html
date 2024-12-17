@@ -9,7 +9,7 @@
     </head>
     <body class="d-flex flex-column m-0 p-0 h-100 w-100">
         <header class="d-flex justify-content-between">
-            <div class="p-0 my-4 mx-5">
+            <div class="p-0 my-4 mx-5 navbar">
                 <nav>
                     <ul class="d-flex m-0 p-0 list-unstyled text-decoration-none gap-3">
                         <li><a href="../pages/index.html" class="link-light text-decoration-none">О нас</a></li>
@@ -25,8 +25,8 @@
         <main class="flex-grow-1">
             <section>
                 <div class="container m-0 p-0 bg-dark">
-                    <div class="row w-100">
-                        <div class="col-6 p-0 d-flex justify-content-center align-items-center flex-column">
+                    <div class="row w-100 m-0 p-0">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-12 p-0 d-flex justify-content-center align-items-center flex-column">
                             <div class="d-flex flex-column gap-3 description">
                                 <h2 class="text-light">Food Construct</h2>
                                 <div class="shortDescription text-light">
@@ -38,48 +38,91 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-6 p-0"><img class="w-100 h-100 mainImg" src="../img/image_2024-12-12_13-29-26.png"></div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-12 p-0"><img class="w-100 h-100 mainImg" src="../img/image_2024-12-12_13-29-26.png"></div>
                     </div>
                 </div>
-                <div class="benefits">
-                    <div class="d-flex justify-content-center flex-column gap-4 h-100">
+                <div class="d-flex flex-column justify-content-center benefits">
+                    <div class="d-flex justify-content-center flex-column gap-4">
                         <div class="d-flex justify-content-center w-100">
                             <h2>Почему выбирают нас?</h2>
                         </div>
-                        <div class="container d-flex justify-content-center">
-                            <div class="row gap-3 w-100 justify-content-center"> 
-                                <div class="col d-flex flex-column align-items-center gap-2 bg-white rounded-3 px-4 py-3 reason">
-                                    <img class="benefitIcon" src="../img/icons/time.png">
-                                    <h5>Быстрая доставка</h5>
-                                    <div>
-                                        Мы понимаем, что время — деньги. Наша служба доставки работает как часы, чтобы вы могли наслаждаться вкусной едой в кратчайшие сроки. Если доставка займет больше времени, мы сделаем её бесплатно!
+                        <div class="container">
+                            <div class="row justify-content-center m-0 g-2">
+                                <div class="col-xl-3 col-lg-3 col-md-6 col-12 d-flex justify-content-center p-0">
+                                    <div class="d-flex flex-column align-items-center gap-2 h-100 bg-white rounded-3 px-4 py-3 reason">
+                                        <img class="benefitIcon" src="../img/icons/time.png">
+                                        <h5>Быстрая доставка</h5>
+                                        <div>Мы понимаем, что время — деньги. Наша служба доставки работает как часы, чтобы вы могли наслаждаться вкусной едой в кратчайшие сроки. Если доставка займет больше времени, мы сделаем её бесплатно!</div>
                                     </div>
                                 </div>
-                                <div class="col d-flex flex-column align-items-center gap-2 bg-white rounded-3 px-4 py-3 reason">
-                                    <img class="benefitIcon" src="../img/icons/fresh.png">
-                                    <h5>Свежие продукты</h5>
-                                    <div>
-                                        Мы тщательно отбираем поставщиков, чтобы каждый ингредиент был максимально свежим. Наши повара готовят блюда сразу после заказа, чтобы вы могли наслаждаться их максимальной свежестью.
+                                <div class="col-xl-3 col-lg-3 col-md-6 col-12 d-flex justify-content-center p-0">
+                                    <div class="d-flex flex-column align-items-center gap-2 h-100 bg-white rounded-3 px-4 py-3 reason">
+                                        <img class="benefitIcon" src="../img/icons/fresh.png">
+                                        <h5>Свежие продукты</h5>
+                                        <div>Мы тщательно отбираем поставщиков, чтобы каждый ингредиент был максимально свежим. Наши повара готовят блюда сразу после заказа, чтобы вы могли наслаждаться их максимальной свежестью.</div>
                                     </div>
                                 </div>
-                                <div class="col d-flex flex-column align-items-center gap-2 bg-white rounded-3 px-4 py-3 reason">
-                                    <img class="benefitIcon" src="../img/icons/diversity.png">
-                                    <h5>Широкий выбор</h5>
-                                    <div>
-                                        У нас есть всё, что вам нужно: от классических блюд до экзотических вкусов. Вы можете выбрать пиццу, суши, бургеры, салаты, десерты и напитки.
+                                <div class="col-xl-3 col-lg-3 col-md-6 col-12 d-flex justify-content-center p-0">
+                                    <div class="d-flex flex-column align-items-center gap-2 h-100 bg-white rounded-3 px-4 py-3 reason">
+                                        <img class="benefitIcon" src="../img/icons/diversity.png">
+                                        <h5>Широкий выбор</h5>
+                                        <div>У нас есть всё, что вам нужно: от классических блюд до экзотических вкусов. Вы можете выбрать пиццу, суши, бургеры, салаты, десерты и напитки.</div>
                                     </div>
                                 </div>
-                                <div class="col d-flex flex-column align-items-center gap-2 bg-white rounded-3 px-4 py-3 reason">
-                                    <img class="benefitIcon" src="../img/icons/quality.png">
-                                    <h5>Высокое качество обслуживания</h5>
-                                    <div>
-                                        Наша служба поддержки работает круглосуточно. Если у вас есть вопросы или проблемы, мы всегда готовы помочь.
+                                <div class="col-xl-3 col-lg-3 col-md-6 col-12 d-flex justify-content-center p-0">
+                                    <div class="d-flex flex-column align-items-center gap-2 h-100 bg-white rounded-3 px-4 py-3 reason">
+                                        <img class="benefitIcon" src="../img/icons/quality.png">
+                                        <h5>Высокое качество обслуживания</h5>
+                                        <div>Наша служба поддержки работает круглосуточно. Если у вас есть вопросы или проблемы, мы всегда готовы помочь.</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- <div class="benefits">
+                    <div class="d-flex justify-content-center flex-column gap-4">
+                        <div class="d-flex justify-content-center w-100">
+                            <h2>Почему выбирают нас?</h2>
+                        </div>
+                        <div class="container d-flex justify-content-center">
+                            <div class="container row gap-3 w-100 justify-content-center">
+                                <div class="row col-xl-6 col-12 d-flex justify-content-evenly gap-3">
+                                    <div class="col-xl-3 col-md-6 col-12 d-flex flex-column align-items-center gap-2 bg-white rounded-3 px-4 py-3 w-50 reason">
+                                        <img class="benefitIcon" src="../img/icons/time.png">
+                                        <h5>Быстрая доставка</h5>
+                                        <div>
+                                            Мы понимаем, что время — деньги. Наша служба доставки работает как часы, чтобы вы могли наслаждаться вкусной едой в кратчайшие сроки. Если доставка займет больше времени, мы сделаем её бесплатно!
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3  col-md-6 col-12 d-flex flex-column align-items-center gap-2 bg-white rounded-3 px-4 py-3 w-50 reason">
+                                        <img class="benefitIcon" src="../img/icons/fresh.png">
+                                        <h5>Свежие продукты</h5>
+                                        <div>
+                                            Мы тщательно отбираем поставщиков, чтобы каждый ингредиент был максимально свежим. Наши повара готовят блюда сразу после заказа, чтобы вы могли наслаждаться их максимальной свежестью.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row col-xl-6 col-12 d-flex justify-content-evenly gap-3">
+                                    <div class="col-xl-3 col-md-6 col-12 d-flex flex-column align-items-center gap-2 bg-white rounded-3 px-4 py-3 w-50 reason">
+                                        <img class="benefitIcon" src="../img/icons/diversity.png">
+                                        <h5>Широкий выбор</h5>
+                                        <div>
+                                            У нас есть всё, что вам нужно: от классических блюд до экзотических вкусов. Вы можете выбрать пиццу, суши, бургеры, салаты, десерты и напитки.
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-md-6 col-12 d-flex flex-column align-items-center gap-2 bg-white rounded-3 px-4 py-3 w-50 reason">
+                                        <img class="benefitIcon" src="../img/icons/quality.png">
+                                        <h5>Высокое качество обслуживания</h5>
+                                        <div>
+                                            Наша служба поддержки работает круглосуточно. Если у вас есть вопросы или проблемы, мы всегда готовы помочь.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
                 <div class="py-5 w-100 d-flex flex-column justify-content-center align-items-center formSection">
                     <div class="text-light formSectionLabel">
                         <h3 class="fw-normal">Есть вопросы? Напишите нам!</h3>
