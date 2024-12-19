@@ -117,7 +117,6 @@ footer {
     text-align: start;
     justify-content: flex-start;
     align-self: center;
-    word-break: break-all;
 }
 
 .price {
