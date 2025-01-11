@@ -48,7 +48,7 @@ header div {
     justify-content: space-between;
     align-items: center;
     padding: 10px 30px;
-    background-color: #91f3c2;
+    background-color: #7edaf7;
     width: 100%;
 }
 
@@ -64,8 +64,11 @@ header div {
 }
 
 main {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
     flex-grow: 1;
-    padding: 20px 20px;
+    padding: 20px 70px;
 }
 
 footer {
@@ -147,6 +150,11 @@ figure {
     color: gold;
 }
 
+.itemRating {
+    display: flex;
+    gap: 10px;
+}
+
 .oldPrice {
     text-decoration: line-through;
     color: red;
@@ -191,6 +199,20 @@ form button:hover {
     background-color: rgb(204, 202, 202);
 }
 
+form input {
+    padding: 5px 5px;
+    outline: none;
+    border: 1px solid rgb(124, 123, 123);
+    border-radius: 10px;
+}
+
+form select {
+    padding: 5px 5px;
+    outline: none;
+    border: 1px solid rgb(124, 123, 123);
+    border-radius: 10px;
+}
+
 textarea {
     height: 60px;
 }
@@ -212,4 +234,50 @@ textarea {
 .buttons {
     display: flex;
     justify-content: space-around;
+}
+
+.modal {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal.active {
+    opacity: 1;
+    pointer-events: all
+}
+
+.window {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 200px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.okayBtn {
+    transition: 0.2s all;
+    width: 125px;
+    outline: none;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.okayBtn:hover {
+    background-color: lightblue;
 }

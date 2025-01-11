@@ -393,7 +393,6 @@ document.querySelector(".orderForm")
     });
 
 const okayBtn = document.querySelector(".okayBtn");
-
 okayBtn.onclick = function() {
     modal.className = "modal";
 };

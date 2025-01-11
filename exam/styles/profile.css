@@ -2,51 +2,82 @@
 
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 h1 {
     margin: 70px 70px 40px 70px;
 }
 
-html {
+body {
+    font-family: 'Roboto', 'Times New Roman';
+    display: flex;
+    flex-direction: column;
     height: 100vh;
 }
 
-body {
+header {
+    background-color: white;
+    padding: 0 20px;
     display: flex;
-    flex-direction: column;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: 'Roboto', 'Times New Roman';
-    font-weight: 500;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid lightgray;
+}
+
+header > a > img {
+    max-height: 70px;
+    object-fit: cover;
+}
+
+header img {
+    width: 25px;
+    height: 25px;
+    object-fit: cover;
+}
+
+header div {
+    display: flex;
+    gap: 15px;
+}
+
+.logo {
+    width: auto;
+    height: auto;
+}
+
+.notification {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    background-color: #7edaf7;
+    width: 100%;
+}
+
+.closeNotification {
+    background: none;
+    border: none;
+}
+
+.closeNotification img {
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
 }
 
 main {
-    flex-grow: 1;
-}
-
-.navbar {
-    margin: 40px 70px;
-    padding: 0;
-}
-
-.navbar ul {
-    text-decoration: none;
-    list-style: none;
-    margin: 0;
-    padding: 0;
     display: flex;
-    gap: 15px;
+    flex-direction: column;
+    gap: 30px;
+    flex-grow: 1;
+    padding: 20px 70px;
 }
 
-.navbar li {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin: 0;
-    padding: 0;
-    font-size: 500;
+footer {
+    padding: 30px 30px;
+    border-top: 1px solid lightgray;
 }
 
 .container {
@@ -67,15 +98,9 @@ a:active {
     color: tomato;
 }
 
-footer {
-    background-color: black;
-    color: white;
-    padding: 20px 70px;
-    width: 100%;
-}
-
 .options {
     width: 60vw;
+    padding: 10px 10px;
     display: flex;
     justify-content: space-around;
     border-bottom: 1px solid lightgray;
@@ -86,8 +111,9 @@ footer {
 .order {
     padding: 10px 0;
     width: 60vw;
-    height: auto;
+    height: 100px;
     display: flex;
+    align-items: center;
     border-bottom: 1px solid lightgray;
     justify-content: space-around;
     font-weight: normal;
@@ -97,9 +123,6 @@ footer {
     display: flex;
 }
 
-.options div {
-    display: flex;
-}
 
 .number {
     width: 50px;
@@ -113,10 +136,13 @@ footer {
 
 .compound {
     width: 500px;
-    height: fit-content;
+    height: inherit;
     text-align: start;
     justify-content: flex-start;
     align-self: center;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    line-height: 1.5;
 }
 
 .price {
@@ -199,23 +225,25 @@ footer {
     gap: 10px;
     grid-template-columns: 50% 50%;
     grid-template-rows: auto;
-    grid-template-areas: 
-    "question question"
-    "head head"
+    grid-template-areas:
     "date dateVal"
-    "deliveryLabel deliveryLabel"
     "deliveryData deliveryData"
-    "comment comment"
-    "commentVal commentVal"
-    "compound compound"
-    "dishList dishList"
+    "itemsList itemsList"
     "totalPrice totalPrice"
+    "comment commentVal"
 }
 
 .window {
     padding: 30px;
     background-color: white;
     border-radius: 15px;
+}
+
+.time {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
 }
 
 .window * {
@@ -233,6 +261,7 @@ footer {
 .labelHead {
     display: flex;
     justify-content: space-between;
+    grid-area: head;
     border-bottom: 1px solid lightgray;
     padding-bottom: 20px;
     margin-bottom: 10px;
@@ -255,10 +284,11 @@ footer {
     grid-template-rows: auto;
     grid-template-areas: 
         "fullName fullNameVal"
-        "deliveryAddress deliveryAddressVal"
-        "deliveryTime deliveryTimeVal"
         "phone phoneVal"
-        "email emailVal";
+        "email emailVal"
+        "deliveryAddress deliveryAddressVal"
+        "deliveryDate deliveryDateVal"
+        "deliveryInterval deliveryIntervalVal"
 }
 
 .closeBtn {
@@ -324,11 +354,17 @@ footer {
     background-color: darkred;
 }
 
-.dishList {
+.itemsList {
     display: grid;
     gap: 10px;
-    grid-template-columns: 50% 50%;
+    max-height: 20vh;
+    grid-template-columns: 300px 300px;
+    line-height: 1.5;
     grid-template-rows: auto;
+}
+
+.itemsList p {
+    overflow: auto;
 }
 
 .changeData {
@@ -338,17 +374,15 @@ footer {
     grid-template-rows: auto;
     grid-template-areas:
         "date dateVal"
-        "delivery delivery"
         "fullName fullNameVal"
-        "deliveryAddress deliveryAddressVal"
-        "deliveryTime deliveryTimeVal"
         "phone phoneVal"
         "email emailVal"
-        "comment comment"
-        "commentVal commentVal"
-        "compound compound"
-        "dishList dishList"
-        "totalPrice totalPrice";
+        "deliveryAddress deliveryAddressVal"
+        "deliveryDate deliveryDateVal"
+        "deliveryInterval deliveryIntervalVal"
+        "itemsList itemsList"
+        "totalPrice totalPrice"
+        "comment commentVal"
 }
 
 .ordersContainer {
@@ -385,11 +419,17 @@ footer {
 .deliveryAddressVal {
     grid-area: deliveryAddressVal;
 }
-.deliveryTime {
-    grid-area: deliveryTime;
+.deliveryDate {
+    grid-area: deliveryDate;
 }
-.deliveryTimeVal {
-    grid-area: deliveryTimeVal;
+.deliveryDateVal {
+    grid-area: deliveryDateVal;
+}
+.deliveryInterval {
+    grid-area: deliveryInterval;
+}
+.deliveryIntervalVal {
+    grid-area: deliveryIntervalVal;
 }
 .phone {
     grid-area: phone;
@@ -412,8 +452,8 @@ footer {
 .compound {
     grid-area: compound;
 }
-.dishList {
-    grid-area: dishList;
+.itemsList {
+    grid-area: itemsList;
 }
 .totalPrice {
     grid-area: totalPrice;

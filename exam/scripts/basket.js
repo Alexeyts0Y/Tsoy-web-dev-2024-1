@@ -1,10 +1,10 @@
 "use strict";
 
-import { getItemById } from "./api.js";
+import { getItemById, createOrder } from "./api.js";
 
 const itemsContainer = document.querySelector(".items");
 
-const itemsData = [];
+let itemsData = [];
 const promises = [];
 
 function createItemCard(data) {
@@ -38,11 +38,14 @@ function createItemCard(data) {
         <div class="itemAttributes">
             <p class="itemName">${data.name}</p>
             <div class="itemRating">
-                <span class="star" data-value="1">&#9733;</span>
-                <span class="star" data-value="2">&#9733;</span>
-                <span class="star" data-value="3">&#9733;</span>
-                <span class="star" data-value="4">&#9733;</span>
-                <span class="star" data-value="5">&#9733;</span>
+                <span class="ratingValue">${data.rating}</span>
+                <span>
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </span>
             </div>
             <div class="itemPriceAndDiscount">
                 <p class="price">${price}</p>
@@ -59,23 +62,36 @@ function createItemCard(data) {
     return card;
 }
 
+function countPrice() {
+    const items = itemsContainer.querySelectorAll(".itemCard");
+    let totalPrice = 0;
+    for (let item of items) {
+        let strPrice = item.querySelector(".price").textContent.slice(0, -1);
+        totalPrice += parseInt(strPrice);
+    }
+    totalPrice += 500;
+    document.querySelector(".totalPrice").textContent = `${totalPrice}₽`;
+}
+
 function displayNothingSelected() {
     if (itemsData.length) {
         document.querySelector(".nothingSelected")
             .style.display = "none";
         return;
     }
+    document.querySelector(".totalPrice").textContent = "";
     document.querySelector(".nothingSelected").style.display = "inline";
 }
 
 function renderSelectedItems() {
     itemsContainer.innerHTML = "";
-    displayNothingSelected();
     itemsData.forEach(data => {
         const card = createItemCard(data);
         card.querySelector("button").textContent = "Удалить";
         itemsContainer.append(card);
     });
+    countPrice();
+    displayNothingSelected();
 }
 
 for (let i = 0; i < localStorage.length; i++) {
@@ -115,4 +131,68 @@ itemsContainer.onclick = function(e) {
 const closeNotificationBtn = document.querySelector(".closeNotification");
 closeNotificationBtn.onclick = function() {
     closeNotificationBtn.parentElement.style.display = "none";
+};
+
+function displayModal(text) {
+    const window = document.getElementById("window");
+    const p = window.querySelector(".text");
+    
+    p.textContent = text;
+    modal.className = "modal active";
+}
+
+document.querySelector("form").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    if (window.localStorage.length == 0) {
+        displayModal("Ничего не выбрано! Выберите товары в каталоге!");
+        return;
+    }
+
+    const items = itemsContainer.querySelectorAll(".itemCard");
+    const goodsIds = [];
+    for (let item of items) {
+        let id = item.dataset.id;
+        goodsIds.push(id);
+    }
+
+    const formData = new FormData(this);
+    const formObject = {};
+    formData.forEach((value, key) => {
+        console.log(key);
+        if (key == "subscribe") {
+            formObject[key] = formData.get(key) == "on";
+        } else if (key == "delivery_date") {
+            const [year, month, day] = value.split("-");
+            const normalDate = `${day}.${month}.${year}`;
+            formObject[key] = normalDate;
+        } else {
+            formObject[key] = value;
+        }
+    });
+
+    formObject.good_ids = goodsIds;
+
+    const response = await createOrder({
+        body: JSON.stringify(formObject),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+
+    if (!response.ok) {
+        throw new Error("Error creating order");
+    } else {
+        // itemsContainer.innerHTML = "";
+        window.localStorage.clear();
+        itemsData = [];
+        renderSelectedItems();
+        this.reset();
+        displayModal("Заказ успешно оформлен!");
+    }
+});
+
+const okayBtn = document.querySelector(".okayBtn");
+okayBtn.onclick = function() {
+    modal.className = "modal";
 };

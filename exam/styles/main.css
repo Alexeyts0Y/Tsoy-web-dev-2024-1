@@ -71,7 +71,7 @@ header div {
     justify-content: space-between;
     align-items: center;
     padding: 10px 30px;
-    background-color: #91f3c2;
+    background-color: #7edaf7;
     width: 100%;
 }
 
@@ -101,6 +101,10 @@ main {
     padding-bottom: 20px;
     display: flex;
     justify-content: space-between;
+}
+
+#sorting {
+    outline: none;
 }
 
 footer {
@@ -209,6 +213,11 @@ figure {
   
 .star.active {
     color: gold;
+}
+
+.itemRating {
+    display: flex;
+    gap: 10px;
 }
 
 .oldPrice {

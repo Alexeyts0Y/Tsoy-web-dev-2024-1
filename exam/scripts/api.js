@@ -81,6 +81,7 @@ export async function createOrder(options) {
 
     const requestOptions = {
         method: "POST",
+        headers: options.headers,
         body: options.body
     };
 
@@ -97,6 +98,7 @@ export async function editOrder(id, options) {
 
     const requestOptions = {
         method: "PUT",
+        headers: options.headers,
         body: options.body
     };
 

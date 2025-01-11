@@ -60,12 +60,17 @@
                     </div>
                     <div>
                         <label for="delivery_interval">Временной интервал доставки</label>
-                        <input type="time" name="delivery_interval" id="delivery_interval">
+                        <select name="delivery_interval" id="delivery_interval">
+                            <option value="08:00-12:00">08:00-12:00</option>
+                            <option value="12:00-14:00">12:00-14:00</option>
+                            <option value="14:00-18:00">14:00-18:00</option>
+                            <option value="18:00-22:00">18:00-22:00</option>
+                        </select>
                     </div>
                     <div class="pricesAndBtns">
                         <div class="prices">
-                            <h3>Итоговая стоимость: <span class="totalPrice">6500</span></h3>
-                            <p>(стоимость доставки 500Р)</p>
+                            <h3>Итоговая стоимость: <span class="totalPrice"></span></h3>
+                            <p>(стоимость доставки 500₽)</p>
                         </div>
                         <div class="buttons">
                             <button type="reset" class="resetBtn">Сбросить</button>
@@ -76,6 +81,12 @@
             </form>
         </section>
     </main>
+    <div class="modal" id="modal">
+        <div class="window" id="window">
+            <p class="text"></p>
+            <button class="okayBtn">Ок &#128076;</button>
+        </div>
+    </div>
     <footer>
         <p>&#169; 2025 Крутой Магаз. Все права защищены</p>
     </footer>
